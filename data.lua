@@ -102,33 +102,20 @@ robot.max_energy = '100MJ'
 robot.energy_per_tick = v.robot_energy_tick
 robot.speed_multiplier_when_out_of_energy = 0.8
 robot.energy_per_move = v.robot_energy_move
-robot.idle = {
-  filename = path_g .. 'construction-robot/construction-robot.png',
-  width = 66,
-  height = 152,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
-robot.in_motion = {
-  filename = path_g .. 'construction-robot/construction-robot.png',
-  width = 66,
-  height = 152,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
-robot.working = {
-  filename = path_g .. 'construction-robot/construction-robot-working.png',
-  width = 114,
-  height = 74,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
+robot.idle.filename = path_g .. 'construction-robot/construction-robot.png'
+robot.idle.width = 66
+robot.idle.height = 152
+robot.in_motion.filename = path_g .. 'construction-robot/construction-robot.png'
+robot.in_motion.width = 66
+robot.in_motion.height = 152
+robot.working.filename = path_g .. 'construction-robot/construction-robot-working.png'
+robot.working.width = 114
+robot.working.height = 74
+if robot.working_shadow then
+  robot.working_shadow.filename = nil
+  robot.working_shadow.width = 114
+  robot.working_shadow.height = 74
+end
 
 local logistic = table.deepcopy(data.raw['logistic-robot']['logistic-robot'])
 logistic.name = 'mhh-prototype-logistic-robot'
@@ -141,42 +128,18 @@ logistic.max_energy = '100MJ'
 logistic.energy_per_tick = v.robot_energy_tick
 logistic.speed_multiplier_when_out_of_energy = 0.8
 logistic.energy_per_move = v.robot_energy_move
-logistic.idle = {
-  filename = path_g .. 'logistic-robot/logistic-robot.png',
-  width = 80,
-  height = 112,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
-logistic.idle_with_cargo = {
-  filename = path_g .. 'logistic-robot/logistic-robot.png',
-  width = 80,
-  height = 112,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
-logistic.in_motion = {
-  filename = path_g .. 'logistic-robot/logistic-robot.png',
-  width = 80,
-  height = 112,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
-logistic.in_motion_with_cargo = {
-  filename = path_g .. 'logistic-robot/logistic-robot.png',
-  width = 80,
-  height = 112,
-  frame_count = 1,
-  axially_symmetric = false,
-  direction_count = 16,
-  shift = { 0.25, 0 },
-}
+logistic.idle.filename = path_g .. 'logistic-robot/logistic-robot.png'
+logistic.idle.width = 80
+logistic.idle.height = 112
+logistic.idle_with_cargo.filename = path_g .. 'logistic-robot/logistic-robot.png'
+logistic.idle_with_cargo.width = 80
+logistic.idle_with_cargo.height = 112
+logistic.in_motion.filename = path_g .. 'logistic-robot/logistic-robot.png'
+logistic.in_motion.width = 80
+logistic.in_motion.height = 112
+logistic.in_motion_with_cargo.filename = path_g .. 'logistic-robot/logistic-robot.png'
+logistic.in_motion_with_cargo.width = 80
+logistic.in_motion_with_cargo.height = 112
 
 ------------------------------------------
 
