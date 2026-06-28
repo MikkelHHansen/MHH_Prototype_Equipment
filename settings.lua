@@ -1,6 +1,6 @@
 data:extend{
   {
-    name = 'mhh-prototype-extra-cheese',
+    name = 'mhh-prototype-halve-equipment-size',
     type = 'bool-setting',
     setting_type = 'startup',
     default_value = false,

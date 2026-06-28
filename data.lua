@@ -1,7 +1,7 @@
 local path_g = '__MHH_Prototype_Equipment__/graphics/'
 local path_i = path_g .. 'icons/'
 
-local eq_size = (settings.startup['mhh-prototype-extra-cheese'].value and 1) or 2
+local eq_size = (settings.startup['mhh-prototype-halve-equipment-size'].value and 1) or 2
 local enabled = settings.startup['mhh-prototype-enable-recipes'].value
 local e_count = (settings.startup['mhh-prototype-recipe-cost'].value) or 10
 

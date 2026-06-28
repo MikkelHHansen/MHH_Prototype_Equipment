@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.0
+Date: 2026-06-28
+  Changes:
+    - Renamed setting "mhh-prototype-extra-cheese" to "mhh-prototype-halve-equipment-size"
+    - Renamed setting display "Extra cheese" to "Halve equipment size"
+    - Renamed "Progressive cost" display to "Recipe ingredient count"
+---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2026-06-28
   Changes:
