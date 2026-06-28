@@ -726,17 +726,23 @@ data:extend({
 if has_se then
   local rr_thruster_suit_ingredients = {
     { type = 'item', name = 'se-thruster-suit-4', amount = 1 },
-    { type = 'item', name = 'processing-unit', amount = e_count * 60 },
-    { type = 'item', name = 'electric-engine-unit', amount = e_count * 40 },
-    { type = 'item', name = 'low-density-structure', amount = e_count * 30 },
-    { type = 'item', name = 'speed-module-2', amount = e_count * 25 },
-    { type = 'item', name = 'efficiency-module-2', amount = e_count * 25 },
+    { type = 'item', name = 'processing-unit', amount = e_count * 30 },
+    { type = 'item', name = 'electric-engine-unit', amount = e_count * 20 },
+    { type = 'item', name = 'low-density-structure', amount = e_count * 15 },
+    { type = 'item', name = 'speed-module-2', amount = e_count * 15 },
+    { type = 'item', name = 'efficiency-module-2', amount = e_count * 15 },
   }
   add_ingredients(rr_thruster_suit_ingredients, {
-    { type = 'item', name = 'se-heavy-composite', amount = 10 },
-    { type = 'item', name = 'se-aeroframe-bulkhead', amount = 5 },
-    { type = 'item', name = 'se-holmium-cable', amount = 10 },
+    { type = 'item', name = 'se-heavy-composite', amount = 15 },
+    { type = 'item', name = 'se-aeroframe-bulkhead', amount = 10 },
+    { type = 'item', name = 'se-holmium-cable', amount = 15 },
   })
+  if has_k2 then
+    add_ingredients(rr_thruster_suit_ingredients, {
+      { type = 'item', name = 'kr-imersium-plate', amount = 20 },
+      { type = 'item', name = 'kr-energy-control-unit', amount = 10 },
+    })
+  end
   data:extend({
     {
       type = 'recipe',
@@ -845,6 +851,24 @@ local function make_armor_packs()
   return packs
 end
 
+local function make_thruster_packs()
+  local packs = {
+    { 'automation-science-pack', 1 },
+    { 'logistic-science-pack', 1 },
+    { 'chemical-science-pack', 1 },
+    { 'military-science-pack', 1 },
+    { 'production-science-pack', 1 },
+    { 'utility-science-pack', 1 },
+  }
+  if has_se then
+    table.insert(packs, { 'se-deep-space-science-pack-4', 1 })
+  end
+  if has_k2 then
+    table.insert(packs, { 'kr-singularity-tech-card', 1 })
+  end
+  return packs
+end
+
 data:extend({
   {
     type = 'technology',
@@ -946,7 +970,7 @@ if has_se then
       icon = path_g .. 'icons/mhh-prototype-thruster-suit.png',
       icon_size = 64,
       prerequisites = { 'mhh-prototype-power-armor', 'se-thruster-suit-4' },
-      unit = { count = 5000, ingredients = make_armor_packs(), time = 120 },
+      unit = { count = 10000, ingredients = make_thruster_packs(), time = 180 },
       effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-thruster-suit' } },
     },
   })
