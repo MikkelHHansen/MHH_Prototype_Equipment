@@ -445,7 +445,7 @@ if has_se then
   thruster.icon = path_g .. "icons/mhh-prototype-thruster-suit.png"
   thruster.equipment_grid = "mhh-prototype-thruster-grid"
   thruster.inventory_size_bonus = v.inventory_bonus + 20
-  thruster.provides_flight = true
+  thruster.provides_flight = feature_flags.space_travel
   thruster.order = "e[power-armor-mk3]-a"
   thruster.resistances = {
     { type = "physical", decrease = v.armor_decrease, percent = v.armor_resist },
