@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.10
+Date: 2026-06-28
+  Changes:
+    - Changed cheaty robot energy cost from 0kJ to 1J (prevent div-by-zero)
+    - Fixed recharging light: added minimum_darkness for daytime visibility
+    - Fixed power armor order string (removed misleading mk3 reference)
+    - Added (?) Krastorio2 optional dependency to info.json
+---------------------------------------------------------------------------------------------------
 Version: 1.5.9
 Date: 2026-06-28
   Changes:

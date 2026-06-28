@@ -16,7 +16,7 @@ local v = (function()
       battery = '1TJ', shield = 30000, shield_buffer = '100MJ', shield_flow = '100MW',
       reactor = '1TW', laser = 300, laser_buffer = '1MJ', laser_energy = '1J', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
       roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
-      robot_speed = 0.06 * 10, robot_energy_tick = '0kJ', robot_energy_move = '0kJ', robot_payload = 1 * 10,
+      robot_speed = 0.06 * 10, robot_energy_tick = '1J', robot_energy_move = '1J', robot_payload = 1 * 10,
         grid_w = 18, grid_h = 20, suit_grid_w = 22, suit_grid_h = 22, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 50,
       station_logi = 250, station_con = 500, station_flow = '125MW', station_buffer = '6.25GJ',
       station_recharge = '2.5GJ', station_usage = '2.5MW', station_charge = '25MW', station_slots = 60, station_mats = 25,
@@ -368,7 +368,7 @@ data:extend({
       scale = 1.5,
       animation_speed = 0.5,
     },
-    recharging_light = { intensity = 0.2, size = 3, color = { r = 0.5, g = 0.5, b = 1.0 } },
+    recharging_light = { intensity = 0.2, size = 3, color = { r = 0.5, g = 0.5, b = 1.0 }, minimum_darkness = 0 },
     stationing_offset = { 0, -0.6 },
     charging_station_shift = { 0, 0.5 },
     charging_station_count = v.roboport_stations,
@@ -412,7 +412,7 @@ data:extend({
     },
     subgroup = 'armor',
     localised_description = { 'item-description.mhh-prototype-power-armor' },
-    order = 'e[power-armor-mk3]',
+    order = 'e[power-armor]-d[prototype]',
     stack_size = 1,
     equipment_grid = 'mhh-prototype-equipment-grid',
     inventory_size_bonus = v.inventory_bonus,
@@ -509,7 +509,7 @@ if has_se then
   thruster.equipment_grid = "mhh-prototype-thruster-grid"
   thruster.inventory_size_bonus = v.inventory_bonus + 20
   thruster.provides_flight = feature_flags.space_travel
-  thruster.order = "e[power-armor-mk3]-a"
+  thruster.order = "f[thruster-suit]-a"
   thruster.resistances = {
     { type = "physical", decrease = v.armor_decrease, percent = v.armor_resist },
     { type = "acid", decrease = v.armor_decrease, percent = v.armor_resist },
