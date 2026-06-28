@@ -377,6 +377,7 @@ data:extend({
     localised_description = { 'item-description.mhh-prototype-power-armor' },
     order = 'e[power-armor]-d[prototype]',
     stack_size = 1,
+    infinite = true,
     equipment_grid = 'mhh-prototype-equipment-grid',
     inventory_size_bonus = v.inventory_bonus,
     provides_flight = feature_flags.space_travel,
