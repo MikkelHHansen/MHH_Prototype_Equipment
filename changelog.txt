@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.7
+Date: 2026-06-28
+  Changes:
+    - Fixed thruster suit recipe crashing when SE is absent (was defined outside if_has_se block)
+    - Fixed all icons to square dimensions (120x64 → 64x64) to prevent distorted rendering
+    - Fixed mhh-prototype-equipments.png to square 256x256 for tech icon
+    - Fixed robot sprite overrides with correct width/height/direction_count
+    - Removed orphaned logistic-robot.png from graphics root
+---------------------------------------------------------------------------------------------------
 Version: 1.5.6
 Date: 2026-06-28
   Changes:

@@ -102,9 +102,33 @@ robot.max_energy = '100MJ'
 robot.energy_per_tick = v.robot_energy_tick
 robot.speed_multiplier_when_out_of_energy = 0.8
 robot.energy_per_move = v.robot_energy_move
-robot.idle.filename = path_g .. 'construction-robot/construction-robot.png'
-robot.in_motion.filename = path_g .. 'construction-robot/construction-robot.png'
-robot.working.filename = path_g .. 'construction-robot/construction-robot-working.png'
+robot.idle = {
+  filename = path_g .. 'construction-robot/construction-robot.png',
+  width = 66,
+  height = 152,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
+robot.in_motion = {
+  filename = path_g .. 'construction-robot/construction-robot.png',
+  width = 66,
+  height = 152,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
+robot.working = {
+  filename = path_g .. 'construction-robot/construction-robot-working.png',
+  width = 114,
+  height = 74,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
 
 local logistic = table.deepcopy(data.raw['logistic-robot']['logistic-robot'])
 logistic.name = 'mhh-prototype-logistic-robot'
@@ -117,10 +141,42 @@ logistic.max_energy = '100MJ'
 logistic.energy_per_tick = v.robot_energy_tick
 logistic.speed_multiplier_when_out_of_energy = 0.8
 logistic.energy_per_move = v.robot_energy_move
-logistic.idle.filename = path_g .. 'logistic-robot/logistic-robot.png'
-logistic.idle_with_cargo.filename = path_g .. 'logistic-robot/logistic-robot.png'
-logistic.in_motion.filename = path_g .. 'logistic-robot/logistic-robot.png'
-logistic.in_motion_with_cargo.filename = path_g .. 'logistic-robot/logistic-robot.png'
+logistic.idle = {
+  filename = path_g .. 'logistic-robot/logistic-robot.png',
+  width = 80,
+  height = 112,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
+logistic.idle_with_cargo = {
+  filename = path_g .. 'logistic-robot/logistic-robot.png',
+  width = 80,
+  height = 112,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
+logistic.in_motion = {
+  filename = path_g .. 'logistic-robot/logistic-robot.png',
+  width = 80,
+  height = 112,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
+logistic.in_motion_with_cargo = {
+  filename = path_g .. 'logistic-robot/logistic-robot.png',
+  width = 80,
+  height = 112,
+  frame_count = 1,
+  axially_symmetric = false,
+  direction_count = 16,
+  shift = { 0.25, 0 },
+}
 
 ------------------------------------------
 
@@ -705,14 +761,6 @@ data:extend({
     enabled = false,
     ingredients = prototype_power_armor_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-power-armor', amount = 1 }},
-  },
-  -- Thruster Suit (SE only)
-  {
-    type = 'recipe',
-    name = 'mhh-prototype-thruster-suit',
-    enabled = false,
-    ingredients = prototype_thruster_suit_ingredients,
-    results = {{ type = 'item', name = 'mhh-prototype-thruster-suit', amount = 1 }},
   },
   -- Robots
   {
