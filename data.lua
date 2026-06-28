@@ -440,6 +440,20 @@ data:extend({
 })
 
 if has_se then
+  local thruster = table.deepcopy(data.raw["armor"]["se-thruster-suit-4"])
+  thruster.name = "mhh-prototype-thruster-suit"
+  thruster.icon = path_g .. "icons/mhh-prototype-thruster-suit.png"
+  thruster.equipment_grid = "mhh-prototype-thruster-grid"
+  thruster.inventory_size_bonus = v.inventory_bonus + 20
+  thruster.provides_flight = true
+  thruster.order = "e[power-armor-mk3]-a"
+  thruster.resistances = {
+    { type = "physical", decrease = v.armor_decrease, percent = v.armor_resist },
+    { type = "acid", decrease = v.armor_decrease, percent = v.armor_resist },
+    { type = "explosion", decrease = v.armor_decrease, percent = v.armor_resist },
+    { type = "fire", decrease = v.armor_decrease, percent = v.armor_resist },
+  }
+
   data:extend({
     {
       type = 'equipment-grid',
@@ -448,27 +462,7 @@ if has_se then
       height = v.suit_grid_h,
       equipment_categories = { 'armor' },
     },
-    {
-      type = 'armor',
-      name = 'mhh-prototype-thruster-suit',
-      icon = path_g .. 'icons/mhh-prototype-thruster-suit.png',
-      icon_size = 64,
-      resistances = {
-        { type = 'physical', decrease = v.armor_decrease, percent = v.armor_resist },
-        { type = 'acid', decrease = v.armor_decrease, percent = v.armor_resist },
-        { type = 'explosion', decrease = v.armor_decrease, percent = v.armor_resist },
-        { type = 'fire', decrease = v.armor_decrease, percent = v.armor_resist },
-      },
-      subgroup = 'armor',
-      order = 'e[power-armor-mk3]-a',
-      stack_size = 1,
-      infinite = true,
-      equipment_grid = 'mhh-prototype-thruster-grid',
-      inventory_size_bonus = v.inventory_bonus + 20,
-      provides_flight = true,
-      open_sound = { filename = '__base__/sound/armor-open.ogg', volume = 1 },
-      close_sound = { filename = '__base__/sound/armor-close.ogg', volume = 1 },
-    },
+    thruster,
   })
 end
 
