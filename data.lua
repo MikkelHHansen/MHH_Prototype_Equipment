@@ -561,6 +561,11 @@ local function prereq_laser()
   return { 'personal-laser-defense-equipment' }
 end
 
+local function prereq_roboport()
+  if has_k2 then return { 'personal-roboport-mk2-equipment', 'kr-advanced-roboports' } end
+  return { 'personal-roboport-mk2-equipment' }
+end
+
 local function prereq_armor()
   local result = { 'mhh-prototype-battery-equipment', 'mhh-prototype-fusion-reactor-equipment', 'mhh-prototype-energy-shield-equipment',
     'mhh-prototype-exoskeleton-equipment', 'mhh-prototype-personal-laser-defense', 'mhh-prototype-personal-roboport',
@@ -667,7 +672,7 @@ data:extend({
     name = 'mhh-prototype-personal-roboport',
     icon = path_i .. 'mhh-prototype-personal-roboport.png',
     icon_size = 64,
-    prerequisites = { 'personal-roboport-mk2-equipment' },
+    prerequisites = prereq_roboport(),
     unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-personal-roboport' } },
   },
