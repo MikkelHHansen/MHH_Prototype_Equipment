@@ -1,4 +1,19 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.1
+Date: 2026-06-28
+  Changes:
+    - Cheaty: armor grid 18×20, stationary roboport 250/500 radius/60 slots, shield 30,000 (all > overpowered)
+---------------------------------------------------------------------------------------------------
+Version: 1.5.0
+Date: 2026-06-28
+  Changes:
+    - Added strength-tier setting (balanced/overpowered/cheaty) for all prototype equipment
+    - Balanced: slightly stronger than best available (mod-aware: vanilla, K2, SE, K2+SE)
+    - Overpowered: significantly stronger than best available (mod-aware)
+    - Cheaty: retains previous extreme values
+    - Armor grid size, resistances, and inventory bonus now scale with tier
+    - Stationary roboport values (logistics/construction radius, charge power, slots) scale with tier
+---------------------------------------------------------------------------------------------------
 Version: 1.4.0
 Date: 2026-06-28
   Changes:

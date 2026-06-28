@@ -8,6 +8,87 @@ local e_count = (settings.startup['mhh-prototype-recipe-cost'].value) or 10
 local has_se = data.raw["item"]["se-holmium-cable"] ~= nil
 local has_k2 = data.raw["item"]["kr-imersium-plate"] ~= nil
 
+local strength = settings.startup['mhh-prototype-strength'].value
+
+local v = (function()
+  if strength == 'cheaty' then
+    return {
+      battery = '1TJ', shield = 30000, shield_buffer = '100MJ', shield_flow = '100MW',
+      reactor = '1TW', laser = 300, exo_bonus = 2.0, exo_drain = '1W',
+      roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
+      robot_speed = 0.06 * 10, robot_energy_tick = '0kJ', robot_energy_move = '0kJ', robot_payload = 1 * 10,
+      grid_w = 18, grid_h = 20, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 30,
+      station_logi = 250, station_con = 500, station_flow = '125MW', station_buffer = '6.25GJ',
+      station_recharge = '2.5GJ', station_usage = '2.5MW', station_charge = '25MW', station_slots = 60, station_mats = 25,
+    }
+  elseif strength == 'overpowered' then
+    if has_se then
+      return {
+        battery = '1GJ', shield = 20000, shield_buffer = '200MJ', shield_flow = '200MW',
+        reactor = '10MW', laser = 30, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
+        grid_w = 14, grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
+        station_recharge = '2GJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
+      }
+    elseif has_k2 then
+      return {
+        battery = '1.5GJ', shield = 3000, shield_buffer = '50MJ', shield_flow = '50MW',
+        reactor = '40MW', laser = 50, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 100, roboport_stations = 30, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
+        grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
+        station_recharge = '2GJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
+      }
+    else
+      return {
+        battery = '1GJ', shield = 1500, shield_buffer = '25MJ', shield_flow = '25MW',
+        reactor = '10MW', laser = 30, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
+        grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
+        station_recharge = '2GJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
+      }
+    end
+  else
+    -- balanced
+    if has_se then
+      return {
+        battery = '200MJ', shield = 6000, shield_buffer = '100MJ', shield_flow = '100MW',
+        reactor = '1.5MW', laser = 6, exo_bonus = 0.6, exo_drain = '200kW',
+        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
+        grid_w = 12, grid_h = 12, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
+        station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
+        station_recharge = '1GJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
+      }
+    elseif has_k2 then
+      return {
+        battery = '300MJ', shield = 500, shield_buffer = '25MJ', shield_flow = '25MW',
+        reactor = '6MW', laser = 10, exo_bonus = 0.75, exo_drain = '200kW',
+        roboport_limit = 30, roboport_stations = 8, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
+        grid_w = 11, grid_h = 11, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
+        station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
+        station_recharge = '1GJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
+      }
+    else
+      return {
+        battery = '200MJ', shield = 300, shield_buffer = '25MJ', shield_flow = '25MW',
+        reactor = '1.5MW', laser = 6, exo_bonus = 0.6, exo_drain = '200kW',
+        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
+        grid_w = 10, grid_h = 10, armor_resist = 75, armor_decrease = 100, inventory_bonus = 30,
+        station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
+        station_recharge = '1GJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
+      }
+    end
+  end
+end)()
+
 ------------------------------------------
 
 local robot = table.deepcopy(data.raw['construction-robot']['construction-robot'])
@@ -15,12 +96,12 @@ robot.name = 'mhh-prototype-construction-robot'
 robot.icon = path_i .. 'mhh-prototype-construction-robot.png'
 robot.minable = { mining_time = 0.1, result = 'mhh-prototype-construction-robot' }
 robot.resistances = { { type = 'fire', percent = 100 }, { type = 'acid', percent = 100 } }
-robot.max_payload_size = 1 * 10
-robot.speed = 0.06 * 10
+robot.max_payload_size = v.robot_payload
+robot.speed = v.robot_speed
 robot.max_energy = '100MJ'
-robot.energy_per_tick = '0kJ'
+robot.energy_per_tick = v.robot_energy_tick
 robot.speed_multiplier_when_out_of_energy = 0.8
-robot.energy_per_move = '0kJ'
+robot.energy_per_move = v.robot_energy_move
 robot.idle.filename = path_g .. 'construction-robot/construction-robot.png'
 robot.in_motion.filename = path_g .. 'construction-robot/construction-robot.png'
 robot.working.filename = path_g .. 'construction-robot/construction-robot-working.png'
@@ -30,12 +111,12 @@ logistic.name = 'mhh-prototype-logistic-robot'
 logistic.icon = path_i .. 'mhh-prototype-logistic-robot.png'
 logistic.minable = { mining_time = 0.1, result = 'mhh-prototype-logistic-robot' }
 logistic.resistances = { { type = 'fire', percent = 100 }, { type = 'acid', percent = 100 } }
-logistic.max_payload_size = 1 * 10
-logistic.speed = 0.06 * 10
+logistic.max_payload_size = v.robot_payload
+logistic.speed = v.robot_speed
 logistic.max_energy = '100MJ'
-logistic.energy_per_tick = '0kJ'
+logistic.energy_per_tick = v.robot_energy_tick
 logistic.speed_multiplier_when_out_of_energy = 0.8
-logistic.energy_per_move = '0kJ'
+logistic.energy_per_move = v.robot_energy_move
 logistic.idle.filename = path_g .. 'logistic-robot/logistic-robot.png'
 logistic.idle_with_cargo.filename = path_g .. 'logistic-robot/logistic-robot.png'
 logistic.in_motion.filename = path_g .. 'logistic-robot/logistic-robot.png'
@@ -50,7 +131,7 @@ data:extend({
     name = 'mhh-prototype-battery',
     sprite = { filename = path_g .. 'mhh-prototype-battery.png', width = 64, height = 128, priority = 'medium', scale = 0.5 },
     shape = { width = 1, height = 2, type = 'full' },
-    energy_source = { type = 'electric', buffer_capacity = '1TJ', usage_priority = 'tertiary' },
+    energy_source = { type = 'electric', buffer_capacity = v.battery, usage_priority = 'tertiary' },
     categories = { 'armor' },
   },
   {
@@ -72,11 +153,11 @@ data:extend({
     name = 'mhh-prototype-energy-shield',
     sprite = { filename = path_g .. 'mhh-prototype-energy-shield.png', width = 128, height = 128, priority = 'medium', scale = 0.5 },
     shape = { width = eq_size, height = eq_size, type = 'full' },
-    max_shield_value = 10000,
+    max_shield_value = v.shield,
     energy_source = {
       type = 'electric',
-      buffer_capacity = '100MJ',
-      input_flow_limit = '100MW',
+      buffer_capacity = v.shield_buffer,
+      input_flow_limit = v.shield_flow,
       usage_priority = 'primary-input',
     },
     energy_per_shield = '1kJ',
@@ -102,7 +183,7 @@ data:extend({
     sprite = { filename = path_g .. 'mhh-prototype-fusion-reactor.png', width = 256, height = 256, priority = 'medium', scale = 0.5 },
     shape = { width = eq_size * eq_size, height = eq_size * eq_size, type = 'full' },
     energy_source = { type = 'electric', usage_priority = 'primary-output' },
-    power = '1TW',
+    power = v.reactor,
     categories = { 'armor' },
   },
   {
@@ -135,7 +216,7 @@ data:extend({
       type = 'beam',
       cooldown = 40,
       range = 32,
-      damage_modifier = 3 * 100,
+      damage_modifier = v.laser,
       ammo_category = 'laser',
       ammo_type = {
         category = 'laser',
@@ -174,8 +255,8 @@ data:extend({
     sprite = { filename = path_g .. 'mhh-prototype-exoskeleton.png', width = 128, height = 256, priority = 'medium', scale = 0.5 },
     shape = { width = eq_size, height = 2 * eq_size, type = 'full' },
     energy_source = { type = 'electric', usage_priority = 'secondary-input' },
-    energy_consumption = '1W',
-    movement_bonus = 2,
+    energy_consumption = v.exo_drain,
+    movement_bonus = v.exo_bonus,
     categories = { 'armor' },
   },
   {
@@ -205,13 +286,13 @@ data:extend({
     shape = { width = eq_size, height = eq_size, type = 'full' },
     energy_source = {
       type = 'electric',
-      buffer_capacity = '1TJ',
-      input_flow_limit = '1TW',
+      buffer_capacity = v.roboport_buffer,
+      input_flow_limit = v.roboport_flow,
       usage_priority = 'secondary-input',
     },
-    charging_energy = '1TW',
+    charging_energy = v.roboport_charge,
 
-    robot_limit = 500,
+    robot_limit = v.roboport_limit,
     construction_radius = 32,
     spawn_and_station_height = 0.4,
     spawn_and_station_shadow_height_offset = 0.5,
@@ -231,7 +312,7 @@ data:extend({
     recharging_light = { intensity = 0.2, size = 3, color = { r = 0.5, g = 0.5, b = 1.0 } },
     stationing_offset = { 0, -0.6 },
     charging_station_shift = { 0, 0.5 },
-    charging_station_count = 250,
+    charging_station_count = v.roboport_stations,
     charging_distance = 1.6,
     charging_threshold_distance = 5,
     categories = { 'armor' },
@@ -253,8 +334,8 @@ data:extend({
   {
     type = 'equipment-grid',
     name = 'mhh-prototype-equipment-grid',
-    width = 11,
-    height = 12,
+    width = v.grid_w,
+    height = v.grid_h,
     equipment_categories = { 'armor' }
   },
   -- Power Armor
@@ -265,17 +346,17 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     resistances = {
-      { type = 'physical', decrease = 1000, percent = 90 },
-      { type = 'acid', decrease = 1000, percent = 90 },
-      { type = 'explosion', decrease = 1000, percent = 90 },
-      { type = 'fire', decrease = 1000, percent = 90 },
+      { type = 'physical', decrease = v.armor_decrease, percent = v.armor_resist },
+      { type = 'acid', decrease = v.armor_decrease, percent = v.armor_resist },
+      { type = 'explosion', decrease = v.armor_decrease, percent = v.armor_resist },
+      { type = 'fire', decrease = v.armor_decrease, percent = v.armor_resist },
     },
     subgroup = 'armor',
     order = 'e[power-armor-mk3]',
     stack_size = 1,
     infinite = true,
     equipment_grid = 'mhh-prototype-equipment-grid',
-    inventory_size_bonus = 30,
+    inventory_size_bonus = v.inventory_bonus,
     provides_flight = feature_flags.space_travel,
     open_sound = { filename = '__base__/sound/armor-open.ogg', volume = 1 },
     close_sound = { filename = '__base__/sound/armor-close.ogg', volume = 1 },
@@ -314,19 +395,19 @@ data:extend({
     proto.icon_size = 64
     proto.icon_mipmaps = 4
     proto.minable = { mining_time = 0.5, result = 'mhh-prototype-roboport' }
-    proto.logistics_radius = 100
-    proto.construction_radius = 220
+    proto.logistics_radius = v.station_logi
+    proto.construction_radius = v.station_con
     proto.energy_source = {
       type = 'electric',
       usage_priority = 'secondary-input',
-      input_flow_limit = '48MW',
-      buffer_capacity = '1200MJ',
+      input_flow_limit = v.station_flow,
+      buffer_capacity = v.station_buffer,
     }
-    proto.recharge_minimum = '480MJ'
-    proto.energy_usage = '600kW'
-    proto.charging_energy = '2MW'
-    proto.robot_slots_count = 24
-    proto.material_slots_count = 10
+    proto.recharge_minimum = v.station_recharge
+    proto.energy_usage = v.station_usage
+    proto.charging_energy = v.station_charge
+    proto.robot_slots_count = v.station_slots
+    proto.material_slots_count = v.station_mats
 
     local tint = { r = 0.55, g = 0.70, b = 1.0, a = 1.0 }
     local function tint_layers(sprite)

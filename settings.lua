@@ -22,4 +22,12 @@ data:extend{
     maximum_value = 100,
     order = 'c'
   },
+  {
+    name = 'mhh-prototype-strength',
+    type = 'string-setting',
+    setting_type = 'startup',
+    default_value = 'balanced',
+    allowed_values = { 'balanced', 'overpowered', 'cheaty' },
+    order = 'd'
+  },
 }
