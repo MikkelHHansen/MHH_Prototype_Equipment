@@ -1,4 +1,56 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.6.7
+Date: 2026-06-28
+  Changes:
+    - Fixed roboport recharge_minimum: balanced 40MJ, overpowered 50MJ, cheaty 60MJ (was 1-2.5GJ, unreachable by 100MJ bots)
+---------------------------------------------------------------------------------------------------
+Version: 1.6.6
+Date: 2026-06-28
+  Changes:
+    - Unified roboport coverage across all presets: logistics 300, construction 650
+---------------------------------------------------------------------------------------------------
+Version: 1.6.5
+Date: 2026-06-28
+  Changes:
+    - Power armor technology icon: proper blue reskin of vanilla power-armor-mk2 tech icon (480x256 mipmapped)
+---------------------------------------------------------------------------------------------------
+Version: 1.6.4
+Date: 2026-06-28
+  Changes:
+    - Power armor tech prereq: power-armor-mk2 (vanilla/SE), kr-power-armor-mk4 (K2/K2+SE), no thruster suit
+---------------------------------------------------------------------------------------------------
+Version: 1.6.3
+Date: 2026-06-28
+  Changes:
+    - Power armor tech now always requires power-armor-mk2 prereq (SE/K2 armors are additional)
+---------------------------------------------------------------------------------------------------
+Version: 1.6.2
+Date: 2026-06-28
+  Changes:
+    - Replaced power armor tech icon with properly upscaled blue vanilla power-armor-mk2 reskin
+---------------------------------------------------------------------------------------------------
+Version: 1.6.1
+Date: 2026-06-28
+  Changes:
+    - Replaced all icons with proper blue-tinted reskins from vanilla Factorio sources
+      Icons now have correct mipmap dimensions (120x64) for crisp rendering at all UI scales
+      All equipment sprites, robot sprite sheets, and power armor tech icon also recolored
+---------------------------------------------------------------------------------------------------
+Version: 1.6.0
+Date: 2026-06-28
+  Changes:
+    - Rebalanced fusion reactor power across all strength tiers (balanced, overpowered, cheaty) for all mod combos
+      Reactor now produces 1.4-2x the equipment set's peak sustained demand, ensuring headroom for charging
+      Balanced vanilla: 5MW → 65MW    Balanced SE: 5MW → 165MW    Balanced K2: 15MW → 50MW
+      Overpowered vanilla: 100MW → 200MW    Overpowered SE: 100MW → 500MW    Overpowered K2: 150MW → 250MW
+      Cheaty: 1TW → 1.5TW
+---------------------------------------------------------------------------------------------------
+Version: 1.5.11
+Date: 2026-06-28
+  Changes:
+    - Added icon_mipmaps=4 to all technology prototypes (fixes icon distortion/aliasing in tech tree)
+    - Fixed thruster suit to use path_i variable consistently (entity + technology)
+---------------------------------------------------------------------------------------------------
 Version: 1.5.10
 Date: 2026-06-28
   Changes:
