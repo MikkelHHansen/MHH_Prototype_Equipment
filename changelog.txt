@@ -1,0 +1,14 @@
+---------------------------------------------------------------------------------------------------
+Version: 1.1.0
+Date: 2026-06-28
+  Changes:
+    - Rebranded from MHH_RR_Items to MHH_Prototype_Equipment
+    - Renamed all internal prefixes from rr- to mhh-prototype-
+    - Recolored graphics from red to prototype blue/steel palette
+    - Updated locale display names from "Red" to "Prototype"
+---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-06-28
+  Changes:
+    - Initial release: all RR items, equipment, armor, robots, recipes, and technologies
+    - Extracted from MHH_Quickstart as a standalone content mod
