@@ -105,6 +105,10 @@ robot.energy_per_move = v.robot_energy_move
 robot.idle.filename = path_g .. 'construction-robot/construction-robot.png'
 robot.in_motion.filename = path_g .. 'construction-robot/construction-robot.png'
 robot.working.filename = path_g .. 'construction-robot/construction-robot-working.png'
+robot.working.width = 114
+robot.working.height = 74
+robot.working.frame_count = 16
+robot.working.direction_count = 1
 robot.working.line_length = 1
 
 local logistic = table.deepcopy(data.raw['logistic-robot']['logistic-robot'])
