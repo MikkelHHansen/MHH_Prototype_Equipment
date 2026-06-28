@@ -500,126 +500,126 @@ local function add_ingredients(ingredients, additions)
   end
 end
 
-local rr_battery_ingredients = {
+local prototype_battery_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 15 },
   { type = 'item', name = 'low-density-structure', amount = 5 },
   { type = 'item', name = 'battery-mk2-equipment', amount = e_count },
 }
 if has_se then
-  replace_ingredient(rr_battery_ingredients, 'low-density-structure', 'se-holmium-cable')
+  replace_ingredient(prototype_battery_ingredients, 'low-density-structure', 'se-holmium-cable')
 end
 if has_k2 then
-  replace_ingredient(rr_battery_ingredients, 'battery-mk2-equipment', 'kr-big-battery-mk3-equipment')
-  add_ingredients(rr_battery_ingredients, {
+  replace_ingredient(prototype_battery_ingredients, 'battery-mk2-equipment', 'kr-big-battery-mk3-equipment')
+  add_ingredients(prototype_battery_ingredients, {
     { type = 'item', name = 'kr-lithium-sulfur-battery', amount = 10 },
   })
 end
 
-local rr_energy_shield_ingredients = {
+local prototype_energy_shield_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 5 },
   { type = 'item', name = 'low-density-structure', amount = 5 },
   { type = 'item', name = 'energy-shield-mk2-equipment', amount = e_count },
 }
 if has_se then
-  add_ingredients(rr_energy_shield_ingredients, { { type = 'item', name = 'se-holmium-solenoid', amount = 5 } })
+  add_ingredients(prototype_energy_shield_ingredients, { { type = 'item', name = 'se-holmium-solenoid', amount = 5 } })
 end
 if has_k2 then
-  replace_ingredient(rr_energy_shield_ingredients, 'energy-shield-mk2-equipment', 'kr-energy-shield-mk4-equipment')
+  replace_ingredient(prototype_energy_shield_ingredients, 'energy-shield-mk2-equipment', 'kr-energy-shield-mk4-equipment')
 end
 
-local rr_fusion_reactor_ingredients = {
+local prototype_fusion_reactor_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 200 },
   { type = 'item', name = 'low-density-structure', amount = 50 },
   { type = 'item', name = 'uranium-fuel-cell', amount = 4 },
   { type = 'item', name = 'fission-reactor-equipment', amount = e_count },
 }
 if has_se then
-  replace_ingredient(rr_fusion_reactor_ingredients, 'fission-reactor-equipment', 'se-antimatter-reactor-equipment')
+  replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'se-antimatter-reactor-equipment')
 end
 if has_k2 then
-  replace_ingredient(rr_fusion_reactor_ingredients, 'fission-reactor-equipment', 'kr-antimatter-reactor-equipment')
+  replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'kr-antimatter-reactor-equipment')
 end
 
-local rr_laser_ingredients = {
+local prototype_laser_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 20 },
   { type = 'item', name = 'low-density-structure', amount = 5 },
   { type = 'item', name = 'personal-laser-defense-equipment', amount = e_count },
 }
 if has_k2 then
-  replace_ingredient(rr_laser_ingredients, 'personal-laser-defense-equipment', 'kr-personal-laser-defense-mk4-equipment')
+  replace_ingredient(prototype_laser_ingredients, 'personal-laser-defense-equipment', 'kr-personal-laser-defense-mk4-equipment')
 end
 
-local rr_exoskeleton_ingredients = {
+local prototype_exoskeleton_ingredients = {
   { type = 'item', name = 'steel-plate', amount = 20 },
   { type = 'item', name = 'processing-unit', amount = 15 },
   { type = 'item', name = 'exoskeleton-equipment', amount = e_count },
 }
 if has_k2 then
-  replace_ingredient(rr_exoskeleton_ingredients, 'exoskeleton-equipment', 'kr-superior-exoskeleton-equipment')
+  replace_ingredient(prototype_exoskeleton_ingredients, 'exoskeleton-equipment', 'kr-superior-exoskeleton-equipment')
 end
 
-local rr_roboport_ingredients = {
+local prototype_roboport_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 100 },
   { type = 'item', name = 'low-density-structure', amount = 20 },
   { type = 'item', name = 'personal-roboport-mk2-equipment', amount = e_count },
 }
 
-local rr_construction_robot_ingredients = {
+local prototype_construction_robot_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 50 },
   { type = 'item', name = 'electric-engine-unit', amount = 20 },
   { type = 'item', name = 'low-density-structure', amount = 10 },
   { type = 'item', name = 'construction-robot', amount = e_count },
 }
 if has_se then
-  add_ingredients(rr_construction_robot_ingredients, {
+  add_ingredients(prototype_construction_robot_ingredients, {
     { type = 'item', name = 'se-aeroframe-bulkhead', amount = 5 },
     { type = 'item', name = 'se-heavy-composite', amount = 5 },
   })
 end
 if has_k2 then
-  add_ingredients(rr_construction_robot_ingredients, {
+  add_ingredients(prototype_construction_robot_ingredients, {
     { type = 'item', name = 'kr-imersium-plate', amount = 10 },
     { type = 'item', name = 'kr-energy-control-unit', amount = 5 },
   })
 end
 
-local rr_logistic_robot_ingredients = {
+local prototype_logistic_robot_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 50 },
   { type = 'item', name = 'electric-engine-unit', amount = 20 },
   { type = 'item', name = 'low-density-structure', amount = 10 },
   { type = 'item', name = 'logistic-robot', amount = e_count },
 }
 if has_se then
-  add_ingredients(rr_logistic_robot_ingredients, {
+  add_ingredients(prototype_logistic_robot_ingredients, {
     { type = 'item', name = 'se-heavy-composite', amount = 5 },
   })
 end
 if has_k2 then
-  add_ingredients(rr_logistic_robot_ingredients, {
+  add_ingredients(prototype_logistic_robot_ingredients, {
     { type = 'item', name = 'kr-imersium-plate', amount = 10 },
   })
 end
 
-local rr_roboport_building_ingredients = {
+local prototype_roboport_building_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 50 },
   { type = 'item', name = 'electric-engine-unit', amount = 20 },
   { type = 'item', name = 'low-density-structure', amount = 25 },
   { type = 'item', name = 'roboport', amount = 10 },
 }
 if has_k2 then
-  add_ingredients(rr_roboport_building_ingredients, {
+  add_ingredients(prototype_roboport_building_ingredients, {
     { type = 'item', name = 'kr-imersium-plate', amount = 10 },
     { type = 'item', name = 'kr-energy-control-unit', amount = 5 },
   })
 end
 if has_se then
-  add_ingredients(rr_roboport_building_ingredients, {
+  add_ingredients(prototype_roboport_building_ingredients, {
     { type = 'item', name = 'se-holmium-cable', amount = 10 },
     { type = 'item', name = 'se-heavy-composite', amount = 5 },
   })
 end
 
-local rr_power_armor_ingredients = {
+local prototype_power_armor_ingredients = {
   { type = 'item', name = 'processing-unit', amount = e_count * 60 },
   { type = 'item', name = 'electric-engine-unit', amount = e_count * 40 },
   { type = 'item', name = 'low-density-structure', amount = e_count * 30 },
@@ -628,17 +628,17 @@ local rr_power_armor_ingredients = {
   { type = 'item', name = 'power-armor-mk2', amount = 1 },
 }
 if has_se then
-  add_ingredients(rr_power_armor_ingredients, {
+  add_ingredients(prototype_power_armor_ingredients, {
     { type = 'item', name = 'se-heavy-composite', amount = 10 },
     { type = 'item', name = 'se-aeroframe-bulkhead', amount = 5 },
   })
 end
 if has_k2 then
-  add_ingredients(rr_power_armor_ingredients, {
+  add_ingredients(prototype_power_armor_ingredients, {
     { type = 'item', name = 'kr-imersium-plate', amount = 20 },
     { type = 'item', name = 'kr-energy-control-unit', amount = 10 },
   })
-  replace_ingredient(rr_power_armor_ingredients, 'power-armor-mk2', 'kr-power-armor-mk4')
+  replace_ingredient(prototype_power_armor_ingredients, 'power-armor-mk2', 'kr-power-armor-mk4')
 end
 
 data:extend({
@@ -647,7 +647,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-battery',
     enabled = false,
-    ingredients = rr_battery_ingredients,
+    ingredients = prototype_battery_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-battery', amount = 1 }},
   },
   -- Energy Shield
@@ -655,7 +655,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-energy-shield',
     enabled = false,
-    ingredients = rr_energy_shield_ingredients,
+    ingredients = prototype_energy_shield_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-energy-shield', amount = 1 }},
   },
   -- Fusion Reactor
@@ -663,7 +663,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-fusion-reactor',
     enabled = false,
-    ingredients = rr_fusion_reactor_ingredients,
+    ingredients = prototype_fusion_reactor_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-fusion-reactor', amount = 1 }},
   },
   -- Personal Laser Defense
@@ -671,7 +671,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-personal-laser-defense',
     enabled = false,
-    ingredients = rr_laser_ingredients,
+    ingredients = prototype_laser_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-personal-laser-defense', amount = 1 }},
   },
   -- Exoskeleton
@@ -679,7 +679,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-exoskeleton',
     enabled = false,
-    ingredients = rr_exoskeleton_ingredients,
+    ingredients = prototype_exoskeleton_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-exoskeleton', amount = 1 }},
   },
   -- Personal Roboport
@@ -687,7 +687,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-personal-roboport',
     enabled = false,
-    ingredients = rr_roboport_ingredients,
+    ingredients = prototype_roboport_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-personal-roboport', amount = 1 }},
   },
   -- Stationary Roboport
@@ -695,7 +695,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-roboport',
     enabled = false,
-    ingredients = rr_roboport_building_ingredients,
+    ingredients = prototype_roboport_building_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-roboport', amount = 1 }},
   },
   -- Armor
@@ -703,7 +703,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-power-armor',
     enabled = false,
-    ingredients = rr_power_armor_ingredients,
+    ingredients = prototype_power_armor_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-power-armor', amount = 1 }},
   },
   -- Thruster Suit (SE only)
@@ -711,7 +711,7 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-thruster-suit',
     enabled = false,
-    ingredients = rr_thruster_suit_ingredients,
+    ingredients = prototype_thruster_suit_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-thruster-suit', amount = 1 }},
   },
   -- Robots
@@ -719,20 +719,20 @@ data:extend({
     type = 'recipe',
     name = 'mhh-prototype-construction-robot',
     enabled = false,
-    ingredients = rr_construction_robot_ingredients,
+    ingredients = prototype_construction_robot_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-construction-robot', amount = 1 }},
   },
   {
     type = 'recipe',
     name = 'mhh-prototype-logistic-robot',
     enabled = false,
-    ingredients = rr_logistic_robot_ingredients,
+    ingredients = prototype_logistic_robot_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-logistic-robot', amount = 1 }},
   },
 })
 
 if has_se then
-  local rr_thruster_suit_ingredients = {
+  local prototype_thruster_suit_ingredients = {
     { type = 'item', name = 'se-thruster-suit-4', amount = 1 },
     { type = 'item', name = 'processing-unit', amount = e_count * 30 },
     { type = 'item', name = 'electric-engine-unit', amount = e_count * 20 },
@@ -740,13 +740,13 @@ if has_se then
     { type = 'item', name = 'speed-module-2', amount = e_count * 15 },
     { type = 'item', name = 'efficiency-module-2', amount = e_count * 15 },
   }
-  add_ingredients(rr_thruster_suit_ingredients, {
+  add_ingredients(prototype_thruster_suit_ingredients, {
     { type = 'item', name = 'se-heavy-composite', amount = 15 },
     { type = 'item', name = 'se-aeroframe-bulkhead', amount = 10 },
     { type = 'item', name = 'se-holmium-cable', amount = 15 },
   })
   if has_k2 then
-    add_ingredients(rr_thruster_suit_ingredients, {
+    add_ingredients(prototype_thruster_suit_ingredients, {
       { type = 'item', name = 'kr-imersium-plate', amount = 20 },
       { type = 'item', name = 'kr-energy-control-unit', amount = 10 },
     })
@@ -756,7 +756,7 @@ if has_se then
       type = 'recipe',
       name = 'mhh-prototype-thruster-suit',
       enabled = false,
-      ingredients = rr_thruster_suit_ingredients,
+      ingredients = prototype_thruster_suit_ingredients,
       results = {{ type = 'item', name = 'mhh-prototype-thruster-suit', amount = 1 }},
     },
   })
