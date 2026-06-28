@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.8
+Date: 2026-06-28
+  Changes:
+    - Fixed cheaty inventory bonus (30 → 50, was lower than lower tiers)
+    - Fixed fusion reactor shape (4×4 → 2×2, was using eq_size² instead of eq_size)
+    - Fixed SE+K2 reactor ingredient mismatch (both mods now use K2's antimatter reactor)
+    - Wrapped character animation registration in pcall for 2.0 safety
+---------------------------------------------------------------------------------------------------
 Version: 1.5.7
 Date: 2026-06-28
   Changes:

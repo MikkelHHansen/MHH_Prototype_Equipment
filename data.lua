@@ -17,7 +17,7 @@ local v = (function()
       reactor = '1TW', laser = 300, laser_buffer = '1MJ', laser_energy = '0MJ', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
       roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
       robot_speed = 0.06 * 10, robot_energy_tick = '0kJ', robot_energy_move = '0kJ', robot_payload = 1 * 10,
-        grid_w = 18, grid_h = 20, suit_grid_w = 22, suit_grid_h = 22, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 30,
+        grid_w = 18, grid_h = 20, suit_grid_w = 22, suit_grid_h = 22, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 50,
       station_logi = 250, station_con = 500, station_flow = '125MW', station_buffer = '6.25GJ',
       station_recharge = '2.5GJ', station_usage = '2.5MW', station_charge = '25MW', station_slots = 60, station_mats = 25,
     }
@@ -237,7 +237,7 @@ data:extend({
     type = 'generator-equipment',
     name = 'mhh-prototype-fusion-reactor',
     sprite = { filename = path_g .. 'mhh-prototype-fusion-reactor.png', width = 256, height = 256, priority = 'medium', scale = 0.5 },
-    shape = { width = eq_size * eq_size, height = eq_size * eq_size, type = 'full' },
+    shape = { width = eq_size, height = eq_size, type = 'full' },
     energy_source = { type = 'electric', usage_priority = 'primary-output' },
     power = v.reactor,
     categories = { 'armor' },
@@ -522,8 +522,8 @@ if has_se then
   })
 end
 
-local char = data.raw.character and data.raw.character.character
-if char then
+pcall(function()
+  local char = data.raw.character.character
   local armor_list = char.animations and char.animations[#char.animations]
   if armor_list and armor_list.armors then
     table.insert(armor_list.armors, 'mhh-prototype-power-armor')
@@ -535,7 +535,7 @@ if char then
   if has_se then
     data.raw['character-corpse']['character-corpse'].armor_picture_mapping['mhh-prototype-thruster-suit'] = #char.animations
   end
-end
+end)
 
 if not enabled then
   return
@@ -589,10 +589,11 @@ local prototype_fusion_reactor_ingredients = {
   { type = 'item', name = 'uranium-fuel-cell', amount = 4 },
   { type = 'item', name = 'fission-reactor-equipment', amount = e_count },
 }
-if has_se then
+if has_se and has_k2 then
+  replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'kr-antimatter-reactor-equipment')
+elseif has_se then
   replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'se-antimatter-reactor-equipment')
-end
-if has_k2 then
+elseif has_k2 then
   replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'kr-antimatter-reactor-equipment')
 end
 
