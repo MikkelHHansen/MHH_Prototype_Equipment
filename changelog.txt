@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.9
+Date: 2026-06-28
+  Changes:
+    - Removed obsolete infinite=true on power armor (2.0 default)
+    - Added localised_description to all items that had locale entries
+    - Updated README: fixed setting names, added thruster suit/roboport/strength-tier
+    - Reduced cheaty laser_energy from 0MJ to 1J (prevent div-by-zero)
+---------------------------------------------------------------------------------------------------
 Version: 1.5.8
 Date: 2026-06-28
   Changes:

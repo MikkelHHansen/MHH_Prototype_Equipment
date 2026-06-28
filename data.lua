@@ -14,7 +14,7 @@ local v = (function()
   if strength == 'cheaty' then
     return {
       battery = '1TJ', shield = 30000, shield_buffer = '100MJ', shield_flow = '100MW',
-      reactor = '1TW', laser = 300, laser_buffer = '1MJ', laser_energy = '0MJ', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
+      reactor = '1TW', laser = 300, laser_buffer = '1MJ', laser_energy = '1J', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
       roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
       robot_speed = 0.06 * 10, robot_energy_tick = '0kJ', robot_energy_move = '0kJ', robot_payload = 1 * 10,
         grid_w = 18, grid_h = 20, suit_grid_w = 22, suit_grid_h = 22, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 50,
@@ -245,6 +245,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-fusion-reactor',
+    localised_description = { 'item-description.mhh-prototype-fusion-reactor' },
     icon = path_i .. 'mhh-prototype-fusion-reactor.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -295,6 +296,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-personal-laser-defense',
+    localised_description = { 'item-description.mhh-prototype-personal-laser-defense' },
     icon = path_i .. 'mhh-prototype-personal-laser-defense.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -318,6 +320,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-exoskeleton',
+    localised_description = { 'item-description.mhh-prototype-exoskeleton' },
     icon = path_i .. 'mhh-prototype-exoskeleton.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -408,9 +411,9 @@ data:extend({
       { type = 'fire', decrease = v.armor_decrease, percent = v.armor_resist },
     },
     subgroup = 'armor',
+    localised_description = { 'item-description.mhh-prototype-power-armor' },
     order = 'e[power-armor-mk3]',
     stack_size = 1,
-    infinite = true,
     equipment_grid = 'mhh-prototype-equipment-grid',
     inventory_size_bonus = v.inventory_bonus,
     provides_flight = feature_flags.space_travel,
@@ -422,6 +425,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-construction-robot',
+    localised_description = { 'item-description.mhh-prototype-construction-robot' },
     icon = path_i .. 'mhh-prototype-construction-robot.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -435,6 +439,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-logistic-robot',
+    localised_description = { 'item-description.mhh-prototype-logistic-robot' },
     icon = path_i .. 'mhh-prototype-logistic-robot.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -485,6 +490,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-roboport',
+    localised_description = { 'item-description.mhh-prototype-roboport' },
     icon = path_i .. 'mhh-prototype-roboport.png',
     icon_size = 64,
     icon_mipmaps = 4,
@@ -499,6 +505,7 @@ if has_se then
   local thruster = table.deepcopy(data.raw["armor"]["se-thruster-suit-4"])
   thruster.name = "mhh-prototype-thruster-suit"
   thruster.icon = path_g .. "icons/mhh-prototype-thruster-suit.png"
+  thruster.localised_description = { 'item-description.mhh-prototype-thruster-suit' }
   thruster.equipment_grid = "mhh-prototype-thruster-grid"
   thruster.inventory_size_bonus = v.inventory_bonus + 20
   thruster.provides_flight = feature_flags.space_travel
