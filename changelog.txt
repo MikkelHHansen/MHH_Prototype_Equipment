@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.4
+Date: 2026-06-28
+  Changes:
+    - Power balance overhaul: boosted reactors and reduced roboport buffers across all tiers
+    - Balanced vanilla/SE: reactor 1.5→5MW, roboport buffer 500→200MJ (charge time 333→40s)
+    - Balanced K2: reactor 6→15MW, roboport buffer 500→200MJ (charge time 83→13s)
+    - Overpowered vanilla/SE: reactor 10→100MW, roboport buffer 10→1GJ (charge time 1000→10s)
+    - Overpowered K2: reactor 40→150MW, roboport buffer 10→1GJ (charge time 250→7s)
+---------------------------------------------------------------------------------------------------
 Version: 1.5.3
 Date: 2026-06-28
   Changes:

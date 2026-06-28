@@ -25,8 +25,8 @@ local v = (function()
     if has_se then
       return {
         battery = '1GJ', shield = 20000, shield_buffer = '200MJ', shield_flow = '200MW',
-        reactor = '10MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
-        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        reactor = '100MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 14, grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
         station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
@@ -35,8 +35,8 @@ local v = (function()
     elseif has_k2 then
       return {
         battery = '1.5GJ', shield = 3000, shield_buffer = '50MJ', shield_flow = '50MW',
-        reactor = '40MW', laser = 50, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
-        roboport_limit = 100, roboport_stations = 30, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        reactor = '150MW', laser = 50, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 100, roboport_stations = 30, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
         station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
@@ -45,8 +45,8 @@ local v = (function()
     else
       return {
         battery = '1GJ', shield = 1500, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '10MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
-        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
+        reactor = '100MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
+        roboport_limit = 150, roboport_stations = 40, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
         station_logi = 200, station_con = 400, station_flow = '100MW', station_buffer = '5GJ',
@@ -58,8 +58,8 @@ local v = (function()
     if has_se then
       return {
         battery = '200MJ', shield = 6000, shield_buffer = '100MJ', shield_flow = '100MW',
-        reactor = '1.5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
-        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        reactor = '5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
+        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 12, grid_h = 12, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
         station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
@@ -68,8 +68,8 @@ local v = (function()
     elseif has_k2 then
       return {
         battery = '300MJ', shield = 500, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '6MW', laser = 10, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.75, exo_drain = '200kW',
-        roboport_limit = 30, roboport_stations = 8, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        reactor = '15MW', laser = 10, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.75, exo_drain = '200kW',
+        roboport_limit = 30, roboport_stations = 8, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 11, grid_h = 11, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
         station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
@@ -78,8 +78,8 @@ local v = (function()
     else
       return {
         battery = '200MJ', shield = 300, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '1.5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
-        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
+        reactor = '5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
+        roboport_limit = 50, roboport_stations = 10, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 10, grid_h = 10, armor_resist = 75, armor_decrease = 100, inventory_bonus = 30,
         station_logi = 120, station_con = 240, station_flow = '50MW', station_buffer = '2GJ',
