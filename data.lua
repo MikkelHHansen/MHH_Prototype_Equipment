@@ -690,6 +690,14 @@ data:extend({
     ingredients = rr_roboport_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-personal-roboport', amount = 1 }},
   },
+  -- Stationary Roboport
+  {
+    type = 'recipe',
+    name = 'mhh-prototype-roboport',
+    enabled = false,
+    ingredients = rr_roboport_building_ingredients,
+    results = {{ type = 'item', name = 'mhh-prototype-roboport', amount = 1 }},
+  },
   -- Armor
   {
     type = 'recipe',
