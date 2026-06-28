@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 2026-06-28
+  Changes:
+    - Added mhh-prototype-roboport (stationary roboport building) with blue-tinted graphics
+    - Added technology and recipe for prototype roboport with SE/K2 conditional support
+    - Removed external dependency on Factorio_Roboport_mk2 mod
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 2026-06-28
   Changes:

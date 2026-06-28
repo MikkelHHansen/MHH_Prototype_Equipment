@@ -306,6 +306,56 @@ data:extend({
     place_result = 'mhh-prototype-logistic-robot',
     stack_size = 500,
   },
+  -- Stationary Roboport
+  (function()
+    local proto = table.deepcopy(data.raw.roboport.roboport)
+    proto.name = 'mhh-prototype-roboport'
+    proto.icon = '__base__/graphics/icons/roboport.png'
+    proto.icon_size = 64
+    proto.icon_mipmaps = 4
+    proto.minable = { mining_time = 0.5, result = 'mhh-prototype-roboport' }
+    proto.logistics_radius = 100
+    proto.construction_radius = 220
+    proto.energy_source = {
+      type = 'electric',
+      usage_priority = 'secondary-input',
+      input_flow_limit = '48MW',
+      buffer_capacity = '1200MJ',
+    }
+    proto.recharge_minimum = '480MJ'
+    proto.energy_usage = '600kW'
+    proto.charging_energy = '2MW'
+    proto.robot_slots_count = 24
+    proto.material_slots_count = 10
+
+    local tint = { r = 0.55, g = 0.70, b = 1.0, a = 1.0 }
+    local function tint_layers(sprite)
+      if not sprite then return end
+      if sprite.layers then
+        for _, layer in ipairs(sprite.layers) do
+          if layer.filename then layer.tint = tint end
+        end
+      elseif sprite.filename then
+        sprite.tint = tint
+      end
+    end
+    tint_layers(proto.base)
+    tint_layers(proto.base_animation)
+    tint_layers(proto.door_animation_up)
+    tint_layers(proto.door_animation_down)
+    return proto
+  end)(),
+  {
+    type = 'item',
+    name = 'mhh-prototype-roboport',
+    icon = '__base__/graphics/icons/roboport.png',
+    icon_size = 64,
+    icon_mipmaps = 4,
+    subgroup = 'logistic-network',
+    order = 'c[signal]-a[roboport]-d[prototype]',
+    place_result = 'mhh-prototype-roboport',
+    stack_size = 10,
+  },
 })
 
 local char = data.raw.character and data.raw.character.character
@@ -436,6 +486,25 @@ if has_k2 then
   })
 end
 
+local rr_roboport_building_ingredients = {
+  { type = 'item', name = 'processing-unit', amount = 50 },
+  { type = 'item', name = 'electric-engine-unit', amount = 20 },
+  { type = 'item', name = 'low-density-structure', amount = 25 },
+  { type = 'item', name = 'roboport', amount = 10 },
+}
+if has_k2 then
+  add_ingredients(rr_roboport_building_ingredients, {
+    { type = 'item', name = 'kr-imersium-plate', amount = 10 },
+    { type = 'item', name = 'kr-energy-control-unit', amount = 5 },
+  })
+end
+if has_se then
+  add_ingredients(rr_roboport_building_ingredients, {
+    { type = 'item', name = 'se-holmium-cable', amount = 10 },
+    { type = 'item', name = 'se-heavy-composite', amount = 5 },
+  })
+end
+
 local rr_power_armor_ingredients = {
   { type = 'item', name = 'processing-unit', amount = e_count * 60 },
   { type = 'item', name = 'electric-engine-unit', amount = e_count * 40 },
@@ -530,6 +599,14 @@ data:extend({
     ingredients = rr_logistic_robot_ingredients,
     results = {{ type = 'item', name = 'mhh-prototype-logistic-robot', amount = 1 }},
   },
+  -- Stationary Roboport
+  {
+    type = 'recipe',
+    name = 'mhh-prototype-roboport',
+    enabled = false,
+    ingredients = rr_roboport_building_ingredients,
+    results = {{ type = 'item', name = 'mhh-prototype-roboport', amount = 1 }},
+  },
 })
 
 -- Build condition-dependent prerequisite lists
@@ -564,6 +641,14 @@ end
 local function prereq_roboport()
   if has_k2 then return { 'personal-roboport-mk2-equipment', 'kr-advanced-roboports' } end
   return { 'personal-roboport-mk2-equipment' }
+end
+
+local function prereq_roboport_building()
+  local result = { 'construction-robotics', 'mhh-prototype-construction-robot' }
+  if has_k2 then
+    table.insert(result, 'kr-advanced-roboports')
+  end
+  return result
 end
 
 local function prereq_armor()
@@ -693,6 +778,15 @@ data:extend({
     prerequisites = { 'logistic-robotics' },
     unit = { count = 500, ingredients = make_packs('se-material-science-pack-2', 'kr-advanced-tech-card'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-logistic-robot' } },
+  },
+  {
+    type = 'technology',
+    name = 'mhh-prototype-roboport',
+    icon = '__base__/graphics/icons/roboport.png',
+    icon_size = 64,
+    prerequisites = prereq_roboport_building(),
+    unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
+    effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-roboport' } },
   },
   {
     type = 'technology',
