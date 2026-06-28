@@ -1,4 +1,13 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.5
+Date: 2026-06-28
+  Changes:
+    - Added mhh-prototype-thruster-suit (SE-only craftable upgrade after se-thruster-suit-4)
+    - Tier-dependent thruster grid: balanced 14×14, overpowered 16×16, cheaty 22×22
+    - Inventory bonus +20 over power armor, always provides flight
+    - Blue-tinted SE thruster suit graphics
+    - SE life support compat via control.lua health maintenance
+---------------------------------------------------------------------------------------------------
 Version: 1.5.4
 Date: 2026-06-28
   Changes:
