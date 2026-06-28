@@ -3,7 +3,7 @@ local path_i = path_g .. 'icons/'
 
 local eq_size = (settings.startup['mhh-prototype-halve-equipment-size'].value and 1) or 2
 local enabled = settings.startup['mhh-prototype-enable-recipes'].value
-local e_count = (settings.startup['mhh-prototype-recipe-cost'].value) or 10
+local e_count = 10
 
 local has_se = data.raw["item"]["se-holmium-cable"] ~= nil
 local has_k2 = data.raw["item"]["kr-imersium-plate"] ~= nil
@@ -14,7 +14,7 @@ local v = (function()
   if strength == 'cheaty' then
     return {
       battery = '1TJ', shield = 30000, shield_buffer = '100MJ', shield_flow = '100MW',
-      reactor = '1TW', laser = 300, exo_bonus = 2.0, exo_drain = '1W',
+      reactor = '1TW', laser = 300, laser_buffer = '1MJ', laser_energy = '0MJ', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
       roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
       robot_speed = 0.06 * 10, robot_energy_tick = '0kJ', robot_energy_move = '0kJ', robot_payload = 1 * 10,
       grid_w = 18, grid_h = 20, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 30,
@@ -25,7 +25,7 @@ local v = (function()
     if has_se then
       return {
         battery = '1GJ', shield = 20000, shield_buffer = '200MJ', shield_flow = '200MW',
-        reactor = '10MW', laser = 30, exo_bonus = 1.0, exo_drain = '200kW',
+        reactor = '10MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 14, grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
@@ -35,7 +35,7 @@ local v = (function()
     elseif has_k2 then
       return {
         battery = '1.5GJ', shield = 3000, shield_buffer = '50MJ', shield_flow = '50MW',
-        reactor = '40MW', laser = 50, exo_bonus = 1.0, exo_drain = '200kW',
+        reactor = '40MW', laser = 50, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 100, roboport_stations = 30, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
@@ -45,7 +45,7 @@ local v = (function()
     else
       return {
         battery = '1GJ', shield = 1500, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '10MW', laser = 30, exo_bonus = 1.0, exo_drain = '200kW',
+        reactor = '10MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 150, roboport_stations = 40, roboport_buffer = '10GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
         grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
@@ -58,7 +58,7 @@ local v = (function()
     if has_se then
       return {
         battery = '200MJ', shield = 6000, shield_buffer = '100MJ', shield_flow = '100MW',
-        reactor = '1.5MW', laser = 6, exo_bonus = 0.6, exo_drain = '200kW',
+        reactor = '1.5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
         roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 12, grid_h = 12, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
@@ -68,7 +68,7 @@ local v = (function()
     elseif has_k2 then
       return {
         battery = '300MJ', shield = 500, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '6MW', laser = 10, exo_bonus = 0.75, exo_drain = '200kW',
+        reactor = '6MW', laser = 10, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.75, exo_drain = '200kW',
         roboport_limit = 30, roboport_stations = 8, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 11, grid_h = 11, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
@@ -78,7 +78,7 @@ local v = (function()
     else
       return {
         battery = '200MJ', shield = 300, shield_buffer = '25MJ', shield_flow = '25MW',
-        reactor = '1.5MW', laser = 6, exo_bonus = 0.6, exo_drain = '200kW',
+        reactor = '1.5MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
         roboport_limit = 50, roboport_stations = 10, roboport_buffer = '500MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
         grid_w = 10, grid_h = 10, armor_resist = 75, armor_decrease = 100, inventory_bonus = 30,
@@ -210,23 +210,23 @@ data:extend({
       scale = 0.5,
     },
     shape = { width = eq_size, height = eq_size, type = 'full' },
-    energy_source = { type = 'electric', usage_priority = 'secondary-input', buffer_capacity = '1MJ' },
+    energy_source = { type = 'electric', usage_priority = 'secondary-input', buffer_capacity = v.laser_buffer },
 
     attack_parameters = {
       type = 'beam',
       cooldown = 40,
-      range = 32,
+      range = v.laser_range,
       damage_modifier = v.laser,
       ammo_category = 'laser',
       ammo_type = {
         category = 'laser',
-        energy_consumption = '0MJ',
+        energy_consumption = v.laser_energy,
         action = {
           type = 'direct',
           action_delivery = {
             type = 'beam',
             beam = 'laser-beam',
-            max_length = 32,
+            max_length = v.laser_range,
             duration = 40,
             source_offset = { 0, -1.31439 },
           },

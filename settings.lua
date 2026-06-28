@@ -14,20 +14,11 @@ data:extend{
     order = 'b'
   },
   {
-    name = 'mhh-prototype-recipe-cost',
-    type = 'int-setting',
-    setting_type = 'startup',
-    default_value = 10,
-    minimum_value = 1,
-    maximum_value = 100,
-    order = 'c'
-  },
-  {
     name = 'mhh-prototype-strength',
     type = 'string-setting',
     setting_type = 'startup',
     default_value = 'balanced',
     allowed_values = { 'balanced', 'overpowered', 'cheaty' },
-    order = 'd'
+    order = 'c'
   },
 }

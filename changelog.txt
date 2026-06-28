@@ -1,4 +1,20 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.5.3
+Date: 2026-06-28
+  Changes:
+    - Recolored construction/logistic robot sprite sheets from red to prototype blue
+---------------------------------------------------------------------------------------------------
+Version: 1.5.2
+Date: 2026-06-28
+  Changes:
+    - Added strength-tier setting (balanced/overpowered/cheaty) for all prototype equipment
+    - Balanced: slightly stronger than best available (mod-aware: vanilla, K2, SE, K2+SE)
+    - Overpowered: significantly stronger than best available (mod-aware)
+    - Cheaty: armor grid 18×20, stationary roboport 250/500/60 slots, shield 30,000
+    - Removed mhh-prototype-recipe-cost setting (e_count hardcoded at 10)
+    - Added locale [mod-setting-values] section for strength-tier dropdown labels
+    - Laser defense now scales with strength tier (buffer, energy, range)
+---------------------------------------------------------------------------------------------------
 Version: 1.5.1
 Date: 2026-06-28
   Changes:
