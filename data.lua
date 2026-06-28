@@ -310,7 +310,7 @@ data:extend({
   (function()
     local proto = table.deepcopy(data.raw.roboport.roboport)
     proto.name = 'mhh-prototype-roboport'
-    proto.icon = '__base__/graphics/icons/roboport.png'
+    proto.icon = path_i .. 'mhh-prototype-roboport.png'
     proto.icon_size = 64
     proto.icon_mipmaps = 4
     proto.minable = { mining_time = 0.5, result = 'mhh-prototype-roboport' }
@@ -348,7 +348,7 @@ data:extend({
   {
     type = 'item',
     name = 'mhh-prototype-roboport',
-    icon = '__base__/graphics/icons/roboport.png',
+    icon = path_i .. 'mhh-prototype-roboport.png',
     icon_size = 64,
     icon_mipmaps = 4,
     subgroup = 'logistic-network',
@@ -782,7 +782,7 @@ data:extend({
   {
     type = 'technology',
     name = 'mhh-prototype-roboport',
-    icon = '__base__/graphics/icons/roboport.png',
+    icon = path_i .. 'mhh-prototype-roboport.png',
     icon_size = 64,
     prerequisites = prereq_roboport_building(),
     unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
