@@ -3,8 +3,8 @@
   "version": "1.7.4",
   "title": "MHH Prototype Equipment",
   "author": "Bumlebien",
-  "source": "https://github.com/MikkelHHansen/FactorioMods",
-  "homepage": "https://github.com/MikkelHHansen/FactorioMods",
+  "source": "https://github.com/MikkelHHansen/MHH_Prototype_Equipment",
+  "homepage": "https://github.com/MikkelHHansen/MHH_Prototype_Equipment",
   "dependencies": [
     "base >= 2.0.0",
     "(?) space-age",
