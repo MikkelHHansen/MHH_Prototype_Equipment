@@ -7,7 +7,7 @@ local e_count = 10
 
 local has_se = data.raw["item"]["se-holmium-cable"] ~= nil
 local has_k2 = data.raw["item"]["kr-imersium-plate"] ~= nil
-local has_space_age = script.active_mods["space-age"]
+local has_space_age = mods["space-age"]
 
 local strength = settings.startup['mhh-prototype-strength'].value
 

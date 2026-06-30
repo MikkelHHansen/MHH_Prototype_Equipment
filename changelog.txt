@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.2
+Date: 2026-06-30
+  Changes:
+    - Improved mod description in info.json for clarity and completeness
+---------------------------------------------------------------------------------------------------
+Version: 1.7.1
+Date: 2026-06-30
+  Changes:
+    - Fixed data.lua crash: changed `script.active_mods["space-age"]` to `mods["space-age"]` (`script` is nil in data stage)
+---------------------------------------------------------------------------------------------------
 Version: 1.7.0
 Date: 2026-06-30
   Changes:

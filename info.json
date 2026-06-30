@@ -1,6 +1,6 @@
 {
   "name": "MHH_Prototype_Equipment",
-  "version": "1.7.0",
+  "version": "1.7.2",
   "title": "MHH Prototype Equipment",
   "author": "MikkelHHansen",
   "source": "https://github.com/MikkelHHansen/FactorioMods",
@@ -11,6 +11,6 @@
     "(?) space-exploration",
     "(?) Krastorio2"
   ],
-  "description": "Adds overpowered Prototype equipment, armor, robots, and technologies to Factorio.",
+  "description": "Adds configurable endgame prototype equipment, power armor, combat and logistics robots, and stationary roboports. Choose between three strength presets (Balanced, Overpowered, Cheaty) to control the power level. Compatible with Space Age, Space Exploration, and Krastorio 2 — recipes and technologies adapt to the installed mods.",
   "factorio_version": "2.0"
 }
