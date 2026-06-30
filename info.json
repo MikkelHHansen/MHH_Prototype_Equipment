@@ -1,8 +1,8 @@
 {
   "name": "MHH_Prototype_Equipment",
-  "version": "1.7.2",
+  "version": "1.7.4",
   "title": "MHH Prototype Equipment",
-  "author": "MikkelHHansen",
+  "author": "Bumlebien",
   "source": "https://github.com/MikkelHHansen/FactorioMods",
   "homepage": "https://github.com/MikkelHHansen/FactorioMods",
   "dependencies": [
