@@ -7,6 +7,7 @@ local e_count = 10
 
 local has_se = data.raw["item"]["se-holmium-cable"] ~= nil
 local has_k2 = data.raw["item"]["kr-imersium-plate"] ~= nil
+local has_space_age = script.active_mods["space-age"]
 
 local strength = settings.startup['mhh-prototype-strength'].value
 
@@ -88,6 +89,16 @@ local v = (function()
     end
   end
 end)()
+
+local base_armor_resistances = {
+  { type = 'physical', decrease = v.armor_decrease, percent = v.armor_resist },
+  { type = 'acid', decrease = v.armor_decrease, percent = v.armor_resist },
+  { type = 'explosion', decrease = v.armor_decrease, percent = v.armor_resist },
+  { type = 'fire', decrease = v.armor_decrease, percent = v.armor_resist },
+}
+if has_space_age then
+  table.insert(base_armor_resistances, { type = 'electric', decrease = v.armor_decrease, percent = v.armor_resist })
+end
 
 ------------------------------------------
 
@@ -348,12 +359,7 @@ data:extend({
     icon = path_i .. 'mhh-prototype-power-armor.png',
     icon_size = 64,
     icon_mipmaps = 4,
-    resistances = {
-      { type = 'physical', decrease = v.armor_decrease, percent = v.armor_resist },
-      { type = 'acid', decrease = v.armor_decrease, percent = v.armor_resist },
-      { type = 'explosion', decrease = v.armor_decrease, percent = v.armor_resist },
-      { type = 'fire', decrease = v.armor_decrease, percent = v.armor_resist },
-    },
+    resistances = base_armor_resistances,
     subgroup = 'armor',
     localised_description = { 'item-description.mhh-prototype-power-armor' },
     order = 'e[power-armor]-d[prototype]',
@@ -455,12 +461,7 @@ if has_se then
   thruster.inventory_size_bonus = v.inventory_bonus + 20
   thruster.provides_flight = feature_flags.space_travel
   thruster.order = "f[thruster-suit]-a"
-  thruster.resistances = {
-    { type = "physical", decrease = v.armor_decrease, percent = v.armor_resist },
-    { type = "acid", decrease = v.armor_decrease, percent = v.armor_resist },
-    { type = "explosion", decrease = v.armor_decrease, percent = v.armor_resist },
-    { type = "fire", decrease = v.armor_decrease, percent = v.armor_resist },
-  }
+  thruster.resistances = base_armor_resistances
 
   data:extend({
     {
@@ -522,6 +523,12 @@ if has_k2 then
     { type = 'item', name = 'kr-lithium-sulfur-battery', amount = 10 },
   })
 end
+if has_space_age then
+  replace_ingredient(prototype_battery_ingredients, 'low-density-structure', 'carbon-fiber')
+  add_ingredients(prototype_battery_ingredients, {
+    { type = 'item', name = 'holmium-plate', amount = 5 },
+  })
+end
 
 local prototype_energy_shield_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 5 },
@@ -533,6 +540,12 @@ if has_se then
 end
 if has_k2 then
   replace_ingredient(prototype_energy_shield_ingredients, 'energy-shield-mk2-equipment', 'kr-energy-shield-mk4-equipment')
+end
+if has_space_age then
+  add_ingredients(prototype_energy_shield_ingredients, {
+    { type = 'item', name = 'holmium-plate', amount = 5 },
+    { type = 'item', name = 'superconductor', amount = 5 },
+  })
 end
 
 local prototype_fusion_reactor_ingredients = {
@@ -548,6 +561,12 @@ elseif has_se then
 elseif has_k2 then
   replace_ingredient(prototype_fusion_reactor_ingredients, 'fission-reactor-equipment', 'kr-antimatter-reactor-equipment')
 end
+if has_space_age then
+  replace_ingredient(prototype_fusion_reactor_ingredients, 'low-density-structure', 'holmium-plate')
+  add_ingredients(prototype_fusion_reactor_ingredients, {
+    { type = 'item', name = 'quantum-processor', amount = 2 },
+  })
+end
 
 local prototype_laser_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 20 },
@@ -556,6 +575,11 @@ local prototype_laser_ingredients = {
 }
 if has_k2 then
   replace_ingredient(prototype_laser_ingredients, 'personal-laser-defense-equipment', 'kr-personal-laser-defense-mk4-equipment')
+end
+if has_space_age then
+  add_ingredients(prototype_laser_ingredients, {
+    { type = 'item', name = 'holmium-plate', amount = 5 },
+  })
 end
 
 local prototype_exoskeleton_ingredients = {
@@ -566,12 +590,23 @@ local prototype_exoskeleton_ingredients = {
 if has_k2 then
   replace_ingredient(prototype_exoskeleton_ingredients, 'exoskeleton-equipment', 'kr-superior-exoskeleton-equipment')
 end
+if has_space_age then
+  add_ingredients(prototype_exoskeleton_ingredients, {
+    { type = 'item', name = 'carbon-fiber', amount = 10 },
+  })
+end
 
 local prototype_roboport_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 100 },
   { type = 'item', name = 'low-density-structure', amount = 20 },
   { type = 'item', name = 'personal-roboport-mk2-equipment', amount = e_count },
 }
+if has_space_age then
+  replace_ingredient(prototype_roboport_ingredients, 'low-density-structure', 'holmium-plate')
+  add_ingredients(prototype_roboport_ingredients, {
+    { type = 'item', name = 'superconductor', amount = 5 },
+  })
+end
 
 local prototype_construction_robot_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 50 },
@@ -591,6 +626,12 @@ if has_k2 then
     { type = 'item', name = 'kr-energy-control-unit', amount = 5 },
   })
 end
+if has_space_age then
+  add_ingredients(prototype_construction_robot_ingredients, {
+    { type = 'item', name = 'carbon-fiber', amount = 10 },
+    { type = 'item', name = 'tungsten-carbide', amount = 5 },
+  })
+end
 
 local prototype_logistic_robot_ingredients = {
   { type = 'item', name = 'processing-unit', amount = 50 },
@@ -606,6 +647,11 @@ end
 if has_k2 then
   add_ingredients(prototype_logistic_robot_ingredients, {
     { type = 'item', name = 'kr-imersium-plate', amount = 10 },
+  })
+end
+if has_space_age then
+  add_ingredients(prototype_logistic_robot_ingredients, {
+    { type = 'item', name = 'carbon-fiber', amount = 10 },
   })
 end
 
@@ -625,6 +671,12 @@ if has_se then
   add_ingredients(prototype_roboport_building_ingredients, {
     { type = 'item', name = 'se-holmium-cable', amount = 10 },
     { type = 'item', name = 'se-heavy-composite', amount = 5 },
+  })
+end
+if has_space_age then
+  add_ingredients(prototype_roboport_building_ingredients, {
+    { type = 'item', name = 'holmium-plate', amount = 10 },
+    { type = 'item', name = 'superconductor', amount = 5 },
   })
 end
 
@@ -648,6 +700,13 @@ if has_k2 then
     { type = 'item', name = 'kr-energy-control-unit', amount = 10 },
   })
   replace_ingredient(prototype_power_armor_ingredients, 'power-armor-mk2', 'kr-power-armor-mk4')
+end
+if has_space_age then
+  replace_ingredient(prototype_power_armor_ingredients, 'low-density-structure', 'holmium-plate')
+  add_ingredients(prototype_power_armor_ingredients, {
+    { type = 'item', name = 'superconductor', amount = 10 },
+    { type = 'item', name = 'supercapacitor', amount = 10 },
+  })
 end
 
 data:extend({
@@ -766,6 +825,7 @@ end
 -- Build condition-dependent prerequisite lists
 local function prereq_battery()
   if has_k2 then return { 'kr-battery-mk3-equipment' } end
+  if has_space_age then return { 'battery-mk3-equipment' } end
   return { 'battery-mk2-equipment' }
 end
 
@@ -773,6 +833,7 @@ local function prereq_reactor()
   if has_se and has_k2 then return { 'kr-antimatter-reactor-equipment' } end
   if has_se then return { 'se-antimatter-reactor-equipment' } end
   if has_k2 then return { 'kr-antimatter-reactor-equipment' } end
+  if has_space_age then return { 'portable-fusion-reactor' } end
   return { 'fission-reactor-equipment' }
 end
 
@@ -818,7 +879,7 @@ local function prereq_armor()
 end
 
 -- Build condition-dependent science packs
-local function make_packs(se_pack, k2_pack, extra)
+local function make_packs(se_pack, k2_pack, extra, space_age_pack)
   local packs = {
     { 'production-science-pack', 1 },
     { 'utility-science-pack', 1 },
@@ -827,6 +888,9 @@ local function make_packs(se_pack, k2_pack, extra)
     for _, pack in ipairs(extra) do
       table.insert(packs, { pack, 1 })
     end
+  end
+  if has_space_age and space_age_pack then
+    table.insert(packs, { space_age_pack, 1 })
   end
   if has_se then
     table.insert(packs, { se_pack, 1 })
@@ -846,6 +910,12 @@ local function make_armor_packs()
     { 'production-science-pack', 1 },
     { 'utility-science-pack', 1 },
   }
+  if has_space_age then
+    table.insert(packs, { 'metallurgic-science-pack', 1 })
+    table.insert(packs, { 'electromagnetic-science-pack', 1 })
+    table.insert(packs, { 'agricultural-science-pack', 1 })
+    table.insert(packs, { 'cryogenic-science-pack', 1 })
+  end
   if has_se then
     table.insert(packs, { 'se-deep-space-science-pack-3', 1 })
   end
@@ -864,6 +934,9 @@ local function make_thruster_packs()
     { 'production-science-pack', 1 },
     { 'utility-science-pack', 1 },
   }
+  if has_space_age then
+    table.insert(packs, { 'cryogenic-science-pack', 1 })
+  end
   if has_se then
     table.insert(packs, { 'se-deep-space-science-pack-4', 1 })
   end
@@ -881,7 +954,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_battery(),
-    unit = { count = 500, ingredients = make_packs('se-energy-science-pack-4', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 500, ingredients = make_packs('se-energy-science-pack-4', 'kr-advanced-tech-card', nil, 'metallurgic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-battery' } },
   },
   {
@@ -891,7 +964,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_reactor(),
-    unit = { count = 1000, ingredients = make_packs('se-deep-space-science-pack-2', 'kr-singularity-tech-card'), time = 60 },
+    unit = { count = 1000, ingredients = make_packs('se-deep-space-science-pack-2', 'kr-singularity-tech-card', nil, 'agricultural-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-fusion-reactor' } },
   },
   {
@@ -901,7 +974,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_shield(),
-    unit = { count = 1000, ingredients = make_packs('se-deep-space-science-pack-3', 'kr-advanced-tech-card', { 'military-science-pack' }), time = 60 },
+    unit = { count = 1000, ingredients = make_packs('se-deep-space-science-pack-3', 'kr-advanced-tech-card', { 'military-science-pack' }, 'electromagnetic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-energy-shield' } },
   },
   {
@@ -911,7 +984,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_exoskeleton(),
-    unit = { count = 500, ingredients = make_packs('se-material-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 500, ingredients = make_packs('se-material-science-pack-3', 'kr-advanced-tech-card', nil, 'metallurgic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-exoskeleton' } },
   },
   {
@@ -921,7 +994,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_laser(),
-    unit = { count = 1000, ingredients = make_packs('se-material-science-pack-4', 'kr-advanced-tech-card', { 'military-science-pack' }), time = 60 },
+    unit = { count = 1000, ingredients = make_packs('se-material-science-pack-4', 'kr-advanced-tech-card', { 'military-science-pack' }, 'electromagnetic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-personal-laser-defense' } },
   },
   {
@@ -931,7 +1004,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_roboport(),
-    unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card', nil, 'electromagnetic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-personal-roboport' } },
   },
   {
@@ -941,7 +1014,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = { 'construction-robotics' },
-    unit = { count = 500, ingredients = make_packs('se-material-science-pack-2', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 500, ingredients = make_packs('se-material-science-pack-2', 'kr-advanced-tech-card', nil, 'metallurgic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-construction-robot' } },
   },
   {
@@ -951,7 +1024,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = { 'logistic-robotics' },
-    unit = { count = 500, ingredients = make_packs('se-material-science-pack-2', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 500, ingredients = make_packs('se-material-science-pack-2', 'kr-advanced-tech-card', nil, 'metallurgic-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-logistic-robot' } },
   },
   {
@@ -961,7 +1034,7 @@ data:extend({
     icon_size = 64,
     icon_mipmaps = 4,
     prerequisites = prereq_roboport_building(),
-    unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card'), time = 60 },
+    unit = { count = 1000, ingredients = make_packs('se-energy-science-pack-3', 'kr-advanced-tech-card', nil, 'agricultural-science-pack'), time = 60 },
     effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-roboport' } },
   },
   {

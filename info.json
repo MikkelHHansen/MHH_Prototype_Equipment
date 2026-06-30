@@ -1,12 +1,13 @@
 {
   "name": "MHH_Prototype_Equipment",
-  "version": "1.6.7",
+  "version": "1.7.0",
   "title": "MHH Prototype Equipment",
   "author": "MikkelHHansen",
   "source": "https://github.com/MikkelHHansen/FactorioMods",
   "homepage": "https://github.com/MikkelHHansen/FactorioMods",
   "dependencies": [
     "base >= 2.0.0",
+    "(?) space-age",
     "(?) space-exploration",
     "(?) Krastorio2"
   ],

@@ -1,4 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.7.0
+Date: 2026-06-30
+  Changes:
+    - Added Space Age compatibility: detection, optional dep, science packs, recipe ingredients, tech prereqs
+    - Added electric damage resistance to armor (new in Space Age)
+    - Technologies now require planet-specific science packs when Space Age is active
+    - Recipes use Space Age intermediate items (holmium-plate, superconductor, carbon-fiber, etc.)
+    - Battery prereq upgrades to mk3-equipment, reactor prereq upgrades to portable-fusion-reactor
+    - Added (?) space-age optional dependency to info.json
+---------------------------------------------------------------------------------------------------
 Version: 1.6.7
 Date: 2026-06-28
   Changes:
