@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.8.3
+Date: 2026-07-02
+  Changes:
+    - Consolidation
+---------------------------------------------------------------------------------------------------
 Version: 1.8.2
 Date: 2026-07-02
   Changes:
@@ -141,7 +146,7 @@ Date: 2026-06-28
 Version: 1.5.3
 Date: 2026-06-28
   Changes:
-    - Recolored construction/logistic robot sprite sheets from red to prototype blue
+    - Made construction/logistic robot sprite sheets blue
 ---------------------------------------------------------------------------------------------------
 Version: 1.5.2
 Date: 2026-06-28
@@ -172,9 +177,7 @@ Date: 2026-06-28
 Version: 1.4.0
 Date: 2026-06-28
   Changes:
-    - Renamed setting "mhh-prototype-extra-cheese" to "mhh-prototype-halve-equipment-size"
-    - Renamed setting display "Extra cheese" to "Halve equipment size"
-    - Renamed "Progressive cost" display to "Recipe ingredient count"
+    - Added settings
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 2026-06-28
@@ -191,7 +194,6 @@ Date: 2026-06-28
 Version: 1.1.0
 Date: 2026-06-28
   Changes:
-    - Rebranded from MHH_RR_Items to MHH_Prototype_Equipment
     - Renamed all internal prefixes from rr- to mhh-prototype-
     - Recolored graphics from red to prototype blue/steel palette
     - Updated locale display names from "Red" to "Prototype"
@@ -199,5 +201,4 @@ Date: 2026-06-28
 Version: 1.0.0
 Date: 2026-06-28
   Changes:
-    - Initial release: all RR items, equipment, armor, robots, recipes, and technologies
-    - Extracted from MHH_Quickstart as a standalone content mod
+    - Initial release: all prototype equipment, armor, robots, recipes, and technologies
