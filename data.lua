@@ -18,8 +18,8 @@ local v = (function()
       reactor = '1.5TW', laser = 300, laser_buffer = '1MJ', laser_energy = '1J', laser_range = 32, exo_bonus = 2.0, exo_drain = '1W',
       roboport_limit = 500, roboport_stations = 250, roboport_buffer = '1TJ', roboport_flow = '1TW', roboport_charge = '1TW',
       robot_speed = 0.06 * 10, robot_energy_tick = '1J', robot_energy_move = '1J', robot_payload = 1 * 10,
-        grid_w = 18, grid_h = 20, suit_grid_w = 22, suit_grid_h = 22, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 50,
-      station_logi = 300, station_con = 650, station_flow = '125MW', station_buffer = '6.25GJ',
+        grid_w = 18, grid_h = 20, armor_resist = 90, armor_decrease = 1000, inventory_bonus = 50,
+      station_logi = 150, station_con = 325, station_flow = '125MW', station_buffer = '6.25GJ',
       station_recharge = '60MJ', station_usage = '2.5MW', station_charge = '25MW', station_slots = 60, station_mats = 25,
     }
   elseif strength == 'overpowered' then
@@ -29,8 +29,8 @@ local v = (function()
         reactor = '500MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 150, roboport_stations = 40, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
-        grid_w = 14, grid_h = 16, suit_grid_w = 16, suit_grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
-        station_logi = 300, station_con = 650, station_flow = '100MW', station_buffer = '5GJ',
+        grid_w = 14, grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 150, station_con = 325, station_flow = '100MW', station_buffer = '5GJ',
         station_recharge = '50MJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
       }
     elseif has_k2 then
@@ -39,8 +39,8 @@ local v = (function()
         reactor = '250MW', laser = 50, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 100, roboport_stations = 30, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
-        grid_w = 12, grid_h = 12, suit_grid_w = 16, suit_grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
-        station_logi = 300, station_con = 650, station_flow = '100MW', station_buffer = '5GJ',
+        grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 150, station_con = 325, station_flow = '100MW', station_buffer = '5GJ',
         station_recharge = '50MJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
       }
     else
@@ -49,8 +49,8 @@ local v = (function()
         reactor = '200MW', laser = 30, laser_buffer = '5MJ', laser_energy = '200kJ', laser_range = 26, exo_bonus = 1.0, exo_drain = '200kW',
         roboport_limit = 150, roboport_stations = 40, roboport_buffer = '1GJ', roboport_flow = '100MW', roboport_charge = '50MW',
         robot_speed = 0.06 * 5, robot_energy_tick = '100J', robot_energy_move = '100J', robot_payload = 1 * 5,
-        grid_w = 12, grid_h = 12, suit_grid_w = 16, suit_grid_h = 16, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
-        station_logi = 300, station_con = 650, station_flow = '100MW', station_buffer = '5GJ',
+        grid_w = 12, grid_h = 12, armor_resist = 85, armor_decrease = 500, inventory_bonus = 40,
+        station_logi = 150, station_con = 325, station_flow = '100MW', station_buffer = '5GJ',
         station_recharge = '50MJ', station_usage = '2MW', station_charge = '20MW', station_slots = 48, station_mats = 20,
       }
     end
@@ -62,8 +62,8 @@ local v = (function()
         reactor = '165MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
         roboport_limit = 50, roboport_stations = 10, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
-        grid_w = 12, grid_h = 12, suit_grid_w = 14, suit_grid_h = 14, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
-        station_logi = 300, station_con = 650, station_flow = '50MW', station_buffer = '2GJ',
+        grid_w = 12, grid_h = 12, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
+        station_logi = 150, station_con = 325, station_flow = '50MW', station_buffer = '2GJ',
         station_recharge = '40MJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
       }
     elseif has_k2 then
@@ -72,8 +72,8 @@ local v = (function()
         reactor = '50MW', laser = 10, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.75, exo_drain = '200kW',
         roboport_limit = 30, roboport_stations = 8, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
-        grid_w = 11, grid_h = 11, suit_grid_w = 14, suit_grid_h = 14, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
-        station_logi = 300, station_con = 650, station_flow = '50MW', station_buffer = '2GJ',
+        grid_w = 11, grid_h = 11, armor_resist = 80, armor_decrease = 200, inventory_bonus = 40,
+        station_logi = 150, station_con = 325, station_flow = '50MW', station_buffer = '2GJ',
         station_recharge = '40MJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
       }
     else
@@ -82,8 +82,8 @@ local v = (function()
         reactor = '65MW', laser = 6, laser_buffer = '500kJ', laser_energy = '50kJ', laser_range = 20, exo_bonus = 0.6, exo_drain = '200kW',
         roboport_limit = 50, roboport_stations = 10, roboport_buffer = '200MJ', roboport_flow = '10MW', roboport_charge = '5MW',
         robot_speed = 0.06 * 2, robot_energy_tick = '1kJ', robot_energy_move = '1kJ', robot_payload = 1 * 2,
-        grid_w = 10, grid_h = 10, suit_grid_w = 14, suit_grid_h = 14, armor_resist = 75, armor_decrease = 100, inventory_bonus = 30,
-        station_logi = 300, station_con = 650, station_flow = '50MW', station_buffer = '2GJ',
+        grid_w = 10, grid_h = 10, armor_resist = 75, armor_decrease = 100, inventory_bonus = 30,
+        station_logi = 150, station_con = 325, station_flow = '50MW', station_buffer = '2GJ',
         station_recharge = '40MJ', station_usage = '1MW', station_charge = '5MW', station_slots = 30, station_mats = 12,
       }
     end
@@ -409,6 +409,7 @@ data:extend({
     proto.minable = { mining_time = 0.5, result = 'mhh-prototype-roboport' }
     proto.logistics_radius = v.station_logi
     proto.construction_radius = v.station_con
+    proto.radar_coverage = 14
     proto.energy_source = {
       type = 'electric',
       usage_priority = 'secondary-input',
@@ -452,42 +453,13 @@ data:extend({
   },
 })
 
-if has_se then
-  local thruster = table.deepcopy(data.raw["armor"]["se-thruster-suit-4"])
-  thruster.name = "mhh-prototype-thruster-suit"
-  thruster.icon = path_i .. "mhh-prototype-thruster-suit.png"
-  thruster.localised_description = { 'item-description.mhh-prototype-thruster-suit' }
-  thruster.equipment_grid = "mhh-prototype-thruster-grid"
-  thruster.inventory_size_bonus = v.inventory_bonus + 20
-  thruster.provides_flight = feature_flags.space_travel
-  thruster.order = "f[thruster-suit]-a"
-  thruster.resistances = base_armor_resistances
-
-  data:extend({
-    {
-      type = 'equipment-grid',
-      name = 'mhh-prototype-thruster-grid',
-      width = v.suit_grid_w,
-      height = v.suit_grid_h,
-      equipment_categories = { 'armor' },
-    },
-    thruster,
-  })
-end
-
 pcall(function()
   local char = data.raw.character.character
   local armor_list = char.animations and char.animations[#char.animations]
   if armor_list and armor_list.armors then
     table.insert(armor_list.armors, 'mhh-prototype-power-armor')
-    if has_se then
-      table.insert(armor_list.armors, 'mhh-prototype-thruster-suit')
-    end
   end
   data.raw['character-corpse']['character-corpse'].armor_picture_mapping['mhh-prototype-power-armor'] = #char.animations
-  if has_se then
-    data.raw['character-corpse']['character-corpse'].armor_picture_mapping['mhh-prototype-thruster-suit'] = #char.animations
-  end
 end)
 
 if not enabled then
@@ -791,36 +763,7 @@ data:extend({
   },
 })
 
-if has_se then
-  local prototype_thruster_suit_ingredients = {
-    { type = 'item', name = 'se-thruster-suit-4', amount = 1 },
-    { type = 'item', name = 'processing-unit', amount = e_count * 30 },
-    { type = 'item', name = 'electric-engine-unit', amount = e_count * 20 },
-    { type = 'item', name = 'low-density-structure', amount = e_count * 15 },
-    { type = 'item', name = 'speed-module-2', amount = e_count * 15 },
-    { type = 'item', name = 'efficiency-module-2', amount = e_count * 15 },
-  }
-  add_ingredients(prototype_thruster_suit_ingredients, {
-    { type = 'item', name = 'se-heavy-composite', amount = 15 },
-    { type = 'item', name = 'se-aeroframe-bulkhead', amount = 10 },
-    { type = 'item', name = 'se-holmium-cable', amount = 15 },
-  })
-  if has_k2 then
-    add_ingredients(prototype_thruster_suit_ingredients, {
-      { type = 'item', name = 'kr-imersium-plate', amount = 20 },
-      { type = 'item', name = 'kr-energy-control-unit', amount = 10 },
-    })
-  end
-  data:extend({
-    {
-      type = 'recipe',
-      name = 'mhh-prototype-thruster-suit',
-      enabled = false,
-      ingredients = prototype_thruster_suit_ingredients,
-      results = {{ type = 'item', name = 'mhh-prototype-thruster-suit', amount = 1 }},
-    },
-  })
-end
+
 
 -- Build condition-dependent prerequisite lists
 local function prereq_battery()
@@ -918,27 +861,6 @@ local function make_armor_packs()
   end
   if has_se then
     table.insert(packs, { 'se-deep-space-science-pack-3', 1 })
-  end
-  if has_k2 then
-    table.insert(packs, { 'kr-singularity-tech-card', 1 })
-  end
-  return packs
-end
-
-local function make_thruster_packs()
-  local packs = {
-    { 'automation-science-pack', 1 },
-    { 'logistic-science-pack', 1 },
-    { 'chemical-science-pack', 1 },
-    { 'military-science-pack', 1 },
-    { 'production-science-pack', 1 },
-    { 'utility-science-pack', 1 },
-  }
-  if has_space_age then
-    table.insert(packs, { 'cryogenic-science-pack', 1 })
-  end
-  if has_se then
-    table.insert(packs, { 'se-deep-space-science-pack-4', 1 })
   end
   if has_k2 then
     table.insert(packs, { 'kr-singularity-tech-card', 1 })
@@ -1049,17 +971,4 @@ data:extend({
   },
 })
 
-if has_se then
-  data:extend({
-    {
-      type = 'technology',
-      name = 'mhh-prototype-thruster-suit',
-      icon = path_i .. 'mhh-prototype-thruster-suit.png',
-      icon_size = 64,
-      icon_mipmaps = 4,
-      prerequisites = { 'mhh-prototype-power-armor', 'se-thruster-suit-4' },
-      unit = { count = 10000, ingredients = make_thruster_packs(), time = 180 },
-      effects = { { type = 'unlock-recipe', recipe = 'mhh-prototype-thruster-suit' } },
-    },
-  })
-end
+

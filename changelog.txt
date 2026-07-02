@@ -1,34 +1,20 @@
 ---------------------------------------------------------------------------------------------------
-Version: 1.7.7
-Date: 2026-06-30
+Version: 1.8.1
+Date: 2026-07-02
   Changes:
-    - Fixed forward sync workflow overwriting release repo deploy workflows
+    - Consolidated changelog
 ---------------------------------------------------------------------------------------------------
-Version: 1.7.6
-Date: 2026-06-30
+Version: 1.8.0
+Date: 2026-07-02
   Changes:
-    - Removed luacheck lint step from release repo deploy workflow
----------------------------------------------------------------------------------------------------
-Version: 1.7.5
-Date: 2026-06-30
-  Changes:
-    - Updated source to release repo URL and homepage to mod portal URL
----------------------------------------------------------------------------------------------------
-Version: 1.7.4
-Date: 2026-06-30
-  Changes:
-    - Changed author to Bumlebien
----------------------------------------------------------------------------------------------------
+    - Removed mhh-prototype-thruster-suit (SE thruster suit copy) — Factorio 2.0 mod sandboxing prevents reliable SE life support integration
+    - MHH_Jumpstart now gives SE-native thruster suits (se-thruster-suit-3/4) as secondary armor alongside prototype power armor
+
 Version: 1.7.3
 Date: 2026-06-30
   Changes:
     - Replaced mod thumbnail with blue-tinted equipment icons to match the prototype-blue in-game models
----------------------------------------------------------------------------------------------------
-Version: 1.7.2
-Date: 2026-06-30
-  Changes:
-    - Improved mod description in info.json for clarity and completeness
----------------------------------------------------------------------------------------------------
+
 Version: 1.7.1
 Date: 2026-06-30
   Changes:
@@ -128,12 +114,7 @@ Date: 2026-06-28
     - Fixed mhh-prototype-equipments.png to square 256x256 for tech icon
     - Fixed robot sprite overrides with correct width/height/direction_count
     - Removed orphaned logistic-robot.png from graphics root
----------------------------------------------------------------------------------------------------
-Version: 1.5.6
-Date: 2026-06-28
-  Changes:
-    - Cleaned up leftover rr_ internal variable naming from the MHH_RR_Items era
----------------------------------------------------------------------------------------------------
+--
 Version: 1.5.5
 Date: 2026-06-28
   Changes:

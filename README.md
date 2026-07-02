@@ -6,7 +6,6 @@ Adds configurable endgame prototype equipment, power armor, combat and logistics
 
 ### Armor
 - **mhh-prototype-power-armor** — Dynamic equipment grid, 90% resistances, flight with Space Age / Space Exploration
-- **mhh-prototype-thruster-suit** — SE-only craftable upgrade to the vanilla thruster suit
 
 ### Equipment
 - Battery, energy shield, fusion reactor, exoskeleton, personal laser defense, personal roboport — all six with prototype-tier stats
@@ -29,7 +28,7 @@ Adds configurable endgame prototype equipment, power armor, combat and logistics
 When **Enable Recipes** is turned on, the mod adds:
 - **10 technologies** — one per equipment/armor/robot category
 - **Tiered recipes** — ingredients, science packs, and prerequisites adapt to installed mods
-- **SE thruster suit** — only appears when Space Exploration is detected
+
 
 Recipes are disabled by default — intended as a jumpstart supplement (see [MHH Jumpstart](https://mods.factorio.com/mod/MHH_Jumpstart)).
 
@@ -37,7 +36,7 @@ Recipes are disabled by default — intended as a jumpstart supplement (see [MHH
 
 The mod automatically detects and adapts to:
 - **Space Age** — adds electric resistance to armor, adjusts ingredient lists
-- **Space Exploration** — adds SE-specific ingredients, enables the thruster suit
+- **Space Exploration** — adds SE-specific ingredients
 - **Krastorio 2** — adds K2-specific ingredients and stat adjustments
 
 Missing mods are handled gracefully — recipes fall back to vanilla ingredients.
